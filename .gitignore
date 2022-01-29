@@ -1,2 +1,2 @@
-./esp/ToyOs/build
-./esp/Kernel.elf
+esp/ToyOs/build/*
+esp/Kernel.elf
