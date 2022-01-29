@@ -1,0 +1,3 @@
+/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles/Kernel.elf.dir
+/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles/edit_cache.dir
+/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles/rebuild_cache.dir

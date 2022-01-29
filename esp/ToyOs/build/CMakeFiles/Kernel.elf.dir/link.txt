@@ -1,0 +1,1 @@
+/usr/bin/clang -nostdlib CMakeFiles/Kernel.elf.dir/Kernel.c.o CMakeFiles/Kernel.elf.dir/Video.c.o -o Kernel.elf 
