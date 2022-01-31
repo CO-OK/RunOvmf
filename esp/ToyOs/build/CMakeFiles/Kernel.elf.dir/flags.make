@@ -6,5 +6,5 @@ C_DEFINES =
 
 C_INCLUDES = 
 
-C_FLAGS = -nostdlib
+C_FLAGS = -fno-stack-protector -nostdlib
 

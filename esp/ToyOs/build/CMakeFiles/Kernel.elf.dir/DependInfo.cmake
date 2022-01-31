@@ -8,8 +8,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/v/program/EFI/runOvmf/esp/ToyOs/Kernel.c" "CMakeFiles/Kernel.elf.dir/Kernel.c.o" "gcc" "CMakeFiles/Kernel.elf.dir/Kernel.c.o.d"
-  "/home/v/program/EFI/runOvmf/esp/ToyOs/Video.c" "CMakeFiles/Kernel.elf.dir/Video.c.o" "gcc" "CMakeFiles/Kernel.elf.dir/Video.c.o.d"
   )
 
 # Targets to which this target links.

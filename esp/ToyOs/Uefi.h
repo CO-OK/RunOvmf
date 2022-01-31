@@ -27,8 +27,10 @@ typedef struct
 
 typedef struct
 {
-   // VIDEO_CONFIG VideoConfig;
+  VIDEO_CONFIG VideoConfig;
+   /*
    EFI_PHYSICAL_ADDRESS       FrameBufferBase;
    UINT64                     FrameBufferSize;
+   */
 } BOOT_CONFIG;
 #pragma pack()

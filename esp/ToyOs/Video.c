@@ -3,7 +3,7 @@
 VIDEO_CONFIG *VideoConfig;
 UINT32 *VideoStart;
 
-/*
+
 int VideoInitial(BOOT_CONFIG *BootConfig)
 {
 
@@ -20,8 +20,8 @@ int VideoInitial(BOOT_CONFIG *BootConfig)
     DrawBlock(BackGround);
     return 0;
 }
-*/
-/*
+
+
 int DrawPixel(PIXEL Pixel)
 {
     UINT32 *Position = VideoStart
@@ -30,15 +30,16 @@ int DrawPixel(PIXEL Pixel)
     *Position = Pixel.Color;
      return 0;
 }
-*/
 
+/*
 int DrawPixel(UINT32* VideoHandle, UINT32 Color, int X , int Y){
     UINT32* Pixel = VideoHandle;
     Pixel += Y*1440+X;
     *Pixel=Color;
     return 0;
 }
-/*
+*/
+
 int DrawBlock(BLOCK Block)
 {
     PIXEL Pixel;
@@ -54,4 +55,3 @@ int DrawBlock(BLOCK Block)
     }
     return 0;
 }
-*/

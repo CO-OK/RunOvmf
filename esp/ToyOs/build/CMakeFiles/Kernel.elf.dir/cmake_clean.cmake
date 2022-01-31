@@ -1,8 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Kernel.elf.dir/Kernel.c.o"
-  "CMakeFiles/Kernel.elf.dir/Kernel.c.o.d"
-  "CMakeFiles/Kernel.elf.dir/Video.c.o"
-  "CMakeFiles/Kernel.elf.dir/Video.c.o.d"
   "Kernel.elf"
   "Kernel.elf.pdb"
 )

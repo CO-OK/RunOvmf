@@ -24,7 +24,7 @@ typedef struct
 
 #pragma pack()
 
-//int VideoInitial(BOOT_CONFIG *BootConfig);
-int DrawPixel(UINT32* VideoHandle, UINT32 Color , int X, int Y);
-//int DrawBlock(BLOCK Block);
+int VideoInitial(BOOT_CONFIG *BootConfig);
+int DrawPixel(PIXEL Pixel);
+int DrawBlock(BLOCK Block);
 
