@@ -1,4 +1,4 @@
-#include "Video.h"
+#include <Video.h>
 
 VIDEO_CONFIG *VideoConfig;
 UINT32 *VideoStart;

@@ -117,45 +117,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Video
-
-# Build rule for target.
-Video: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Video
-.PHONY : Video
-
-# fast build rule for target.
-Video/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Video.dir/build.make CMakeFiles/Video.dir/build
-.PHONY : Video/fast
-
-#=============================================================================
-# Target rules for targets named Shell
-
-# Build rule for target.
-Shell: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Shell
-.PHONY : Shell
-
-# fast build rule for target.
-Shell/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shell.dir/build.make CMakeFiles/Shell.dir/build
-.PHONY : Shell/fast
-
-#=============================================================================
-# Target rules for targets named Kernel
-
-# Build rule for target.
-Kernel: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Kernel
-.PHONY : Kernel
-
-# fast build rule for target.
-Kernel/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kernel.dir/build.make CMakeFiles/Kernel.dir/build
-.PHONY : Kernel/fast
-
-#=============================================================================
 # Target rules for targets named Kernel.elf
 
 # Build rule for target.
@@ -168,77 +129,44 @@ Kernel.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kernel.elf.dir/build.make CMakeFiles/Kernel.elf.dir/build
 .PHONY : Kernel.elf/fast
 
-Kernel.o: Kernel.c.o
-.PHONY : Kernel.o
+#=============================================================================
+# Target rules for targets named Video
 
-# target to build an object file
-Kernel.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kernel.dir/build.make CMakeFiles/Kernel.dir/Kernel.c.o
-.PHONY : Kernel.c.o
+# Build rule for target.
+Video: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Video
+.PHONY : Video
 
-Kernel.i: Kernel.c.i
-.PHONY : Kernel.i
+# fast build rule for target.
+Video/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Video.dir/build.make Src/CMakeFiles/Video.dir/build
+.PHONY : Video/fast
 
-# target to preprocess a source file
-Kernel.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kernel.dir/build.make CMakeFiles/Kernel.dir/Kernel.c.i
-.PHONY : Kernel.c.i
+#=============================================================================
+# Target rules for targets named Shell
 
-Kernel.s: Kernel.c.s
-.PHONY : Kernel.s
+# Build rule for target.
+Shell: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Shell
+.PHONY : Shell
 
-# target to generate assembly for a file
-Kernel.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kernel.dir/build.make CMakeFiles/Kernel.dir/Kernel.c.s
-.PHONY : Kernel.c.s
+# fast build rule for target.
+Shell/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Shell.dir/build.make Src/CMakeFiles/Shell.dir/build
+.PHONY : Shell/fast
 
-Shell.o: Shell.c.o
-.PHONY : Shell.o
+#=============================================================================
+# Target rules for targets named Kernel
 
-# target to build an object file
-Shell.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shell.dir/build.make CMakeFiles/Shell.dir/Shell.c.o
-.PHONY : Shell.c.o
+# Build rule for target.
+Kernel: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Kernel
+.PHONY : Kernel
 
-Shell.i: Shell.c.i
-.PHONY : Shell.i
-
-# target to preprocess a source file
-Shell.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shell.dir/build.make CMakeFiles/Shell.dir/Shell.c.i
-.PHONY : Shell.c.i
-
-Shell.s: Shell.c.s
-.PHONY : Shell.s
-
-# target to generate assembly for a file
-Shell.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Shell.dir/build.make CMakeFiles/Shell.dir/Shell.c.s
-.PHONY : Shell.c.s
-
-Video.o: Video.c.o
-.PHONY : Video.o
-
-# target to build an object file
-Video.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Video.dir/build.make CMakeFiles/Video.dir/Video.c.o
-.PHONY : Video.c.o
-
-Video.i: Video.c.i
-.PHONY : Video.i
-
-# target to preprocess a source file
-Video.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Video.dir/build.make CMakeFiles/Video.dir/Video.c.i
-.PHONY : Video.c.i
-
-Video.s: Video.c.s
-.PHONY : Video.s
-
-# target to generate assembly for a file
-Video.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Video.dir/build.make CMakeFiles/Video.dir/Video.c.s
-.PHONY : Video.c.s
+# fast build rule for target.
+Kernel/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Kernel.dir/build.make Src/CMakeFiles/Kernel.dir/build
+.PHONY : Kernel/fast
 
 # Help Target
 help:
@@ -252,15 +180,6 @@ help:
 	@echo "... Kernel.elf"
 	@echo "... Shell"
 	@echo "... Video"
-	@echo "... Kernel.o"
-	@echo "... Kernel.i"
-	@echo "... Kernel.s"
-	@echo "... Shell.o"
-	@echo "... Shell.i"
-	@echo "... Shell.s"
-	@echo "... Video.o"
-	@echo "... Video.i"
-	@echo "... Video.s"
 .PHONY : help
 
 

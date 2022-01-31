@@ -1,1 +1,1 @@
-/usr/bin/clang -fno-stack-protector -nostdlib -e KernelStart CMakeFiles/Video.dir/Video.c.o CMakeFiles/Shell.dir/Shell.c.o CMakeFiles/Kernel.dir/Kernel.c.o -o Kernel.elf 
+/usr/bin/clang -fno-stack-protector -nostdlib  -e KernelStart Src/CMakeFiles/Video.dir/Video.c.o Src/CMakeFiles/Shell.dir/Shell.c.o Src/CMakeFiles/Kernel.dir/Kernel.c.o -o Kernel.elf 

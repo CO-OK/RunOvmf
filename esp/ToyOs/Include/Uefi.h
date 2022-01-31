@@ -3,10 +3,12 @@ typedef unsigned char UINT8;
 typedef UINT8 CHAR8;
 typedef unsigned int  UINT32;
 typedef unsigned long long  UINT64;
+typedef unsigned short UINT16;
 typedef UINT64 UINTN;
 typedef UINT64 EFI_PHYSICAL_ADDRESS;
 typedef UINT64 EFI_VIRTUAL_ADDRESS;
-
+typedef UINT16  uint16_t;
+typedef UINT32  uint32_t;
 #pragma pack(1)
 typedef struct
 {

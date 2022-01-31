@@ -4,7 +4,7 @@
 # compile C with /usr/bin/clang
 C_DEFINES = 
 
-C_INCLUDES = 
+C_INCLUDES = -I/home/v/program/EFI/runOvmf/esp/ToyOs/Include
 
-C_FLAGS = -fno-stack-protector -nostdlib
+C_FLAGS = -fno-stack-protector -nostdlib 
 

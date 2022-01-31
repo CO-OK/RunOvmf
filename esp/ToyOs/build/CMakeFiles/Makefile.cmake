@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
+  "../Src/CMakeLists.txt"
   "CMakeFiles/3.22.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.1/CMakeSystem.cmake"
   "/usr/share/cmake/Modules/CMakeCInformation.cmake"
@@ -35,12 +36,13 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Src/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/Video.dir/DependInfo.cmake"
-  "CMakeFiles/Shell.dir/DependInfo.cmake"
-  "CMakeFiles/Kernel.dir/DependInfo.cmake"
   "CMakeFiles/Kernel.elf.dir/DependInfo.cmake"
+  "Src/CMakeFiles/Video.dir/DependInfo.cmake"
+  "Src/CMakeFiles/Shell.dir/DependInfo.cmake"
+  "Src/CMakeFiles/Kernel.dir/DependInfo.cmake"
   )
