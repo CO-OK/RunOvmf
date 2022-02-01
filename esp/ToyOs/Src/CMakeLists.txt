@@ -13,6 +13,10 @@ add_library(Kernel
     Kernel.c
 )
 
+add_library(Char
+    OBJECT
+    Char.c
+)
 target_include_directories(Video
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
@@ -22,6 +26,10 @@ target_include_directories(Kernel
                             ${CMAKE_SOURCE_DIR}/Include
                           )
 target_include_directories(Shell
+                            PUBLIC
+                            ${CMAKE_SOURCE_DIR}/Include
+                          )
+target_include_directories(Char
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
                           )

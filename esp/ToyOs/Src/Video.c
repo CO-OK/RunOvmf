@@ -2,7 +2,8 @@
 
 VIDEO_CONFIG *VideoConfig;
 UINT32 *VideoStart;
-
+/* number of bytes in each line, it's possible it's not screen width * bytesperpixel! */
+int scanline=4*1440;
 
 int VideoInitial(BOOT_CONFIG *BootConfig)
 {
@@ -16,7 +17,7 @@ int VideoInitial(BOOT_CONFIG *BootConfig)
     BackGround.Start.Y = 0;
     BackGround.End.X = BootConfig->VideoConfig.HorizontalResolution - 1;
     BackGround.End.Y = BootConfig->VideoConfig.VerticalResolution - 1;
-    BackGround.Color = 0xFF18679A;
+    BackGround.Color = Black;
     DrawBlock(BackGround);
     return 0;
 }

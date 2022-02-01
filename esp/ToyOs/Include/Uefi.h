@@ -9,6 +9,8 @@ typedef UINT64 EFI_PHYSICAL_ADDRESS;
 typedef UINT64 EFI_VIRTUAL_ADDRESS;
 typedef UINT16  uint16_t;
 typedef UINT32  uint32_t;
+typedef UINT64  uint64_t;
+#define NULL   ((void* )0)
 #pragma pack(1)
 typedef struct
 {

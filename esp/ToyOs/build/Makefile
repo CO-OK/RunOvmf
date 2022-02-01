@@ -168,6 +168,19 @@ Kernel/fast:
 	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Kernel.dir/build.make Src/CMakeFiles/Kernel.dir/build
 .PHONY : Kernel/fast
 
+#=============================================================================
+# Target rules for targets named Char
+
+# Build rule for target.
+Char: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Char
+.PHONY : Char
+
+# fast build rule for target.
+Char/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Char.dir/build.make Src/CMakeFiles/Char.dir/build
+.PHONY : Char/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -176,6 +189,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Char"
 	@echo "... Kernel"
 	@echo "... Kernel.elf"
 	@echo "... Shell"

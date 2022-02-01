@@ -10,7 +10,7 @@ SET(CFLAGS "-fno-stack-protector -nostdlib ")
 SET(CMAKE_C_FLAGS "${CFLAGS}")
 
 # 链接选项
-set(LDFLAGS "-e KernelStart")
+set(LDFLAGS "-e KernelStart font.o")
 set(CMAKE_EXE_LINKER_FLAGS    "${LDFLAGS}")
 
 
@@ -21,9 +21,10 @@ add_subdirectory(Src)
 
 
 add_executable(Kernel.elf )
-#target_include_directories(Kernel.elf PUBLIC Defines)
+
 target_link_libraries(Kernel.elf PUBLIC Video)
 target_link_libraries(Kernel.elf PUBLIC Shell)
 target_link_libraries(Kernel.elf PUBLIC Kernel)
-
+#target_link_libraries(Kernel.elf PUBLIC Font)
+target_link_libraries(Kernel.elf PUBLIC Char)
 

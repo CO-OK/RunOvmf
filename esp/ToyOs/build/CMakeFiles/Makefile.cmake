@@ -45,4 +45,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "Src/CMakeFiles/Video.dir/DependInfo.cmake"
   "Src/CMakeFiles/Shell.dir/DependInfo.cmake"
   "Src/CMakeFiles/Kernel.dir/DependInfo.cmake"
+  "Src/CMakeFiles/Char.dir/DependInfo.cmake"
   )

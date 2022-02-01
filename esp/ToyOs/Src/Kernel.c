@@ -7,19 +7,15 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
 
     UINT64 PassBack = 0;
     VideoInitial(BootConfig);
-    ShellInitial();
-    POINT p1,p2;
-    p1.X=25;
-    p1.Y=25;
-    p2.X=100;
-    p2.Y=30;
-    BLOCK block;
-    block.Start=p1;
-    block.End=p2;
-    block.Color=0xFF18679A;
-    DrawBlock(block);
+    //ShellInitial();
+    CharInit();
     
-	
+    for(int i=0;i<100;i++){
+        putchar(BootConfig->VideoConfig.FrameBufferBase,i,i,0,White,Black);
+    }
+    
+	//putchar(BootConfig->VideoConfig.FrameBufferBase,35,1,0,White,Black);
+    //putchar(BootConfig->VideoConfig.FrameBufferBase,36,2,0,White,Black);
 	
     
     
