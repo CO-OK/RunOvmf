@@ -9,7 +9,7 @@ extern char _binary_font_psf_start;
 extern char _binary_font_psf_end;
 
 #define PSF_FONT_MAGIC 0x864ab572
- 
+unsigned char temp[28][84]={};
 typedef struct {
     uint32_t magic;         /* magic bytes to identify PSF */
     uint32_t version;       /* zero */
@@ -41,9 +41,20 @@ void psf_init()
         cout<<bitset<16>(*glyph)<<endl;
         glyph++;
     }
+    uint32_t a;
+    uint32_t *p=&a;
+    printf("%x\n",p);
+    p++;
+    printf("%x\n",p);
+    printf("%x\n",p+1);
      
 }
 int main(){
     read_psf();
     psf_init();
+    for(int i=0;i<28;i++){
+        for(int j=0;j<84;j++){
+            printf("%d\n",temp[i][j]);
+        }
+    }
 }

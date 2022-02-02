@@ -6,7 +6,7 @@ SET(CMAKE_C_COMPILER "/usr/bin/clang")
 
 # 编译器选项 不能用-m32
 
-SET(CFLAGS "-fno-stack-protector -nostdlib ")
+SET(CFLAGS "-fno-stack-protector -nostdlib -ffreestanding ")
 SET(CMAKE_C_FLAGS "${CFLAGS}")
 
 # 链接选项

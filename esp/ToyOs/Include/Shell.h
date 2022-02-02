@@ -1,4 +1,5 @@
-#include"Video.h"
+#pragma once
+#include"Char.h"
 #pragma pack(1)
 
 typedef struct

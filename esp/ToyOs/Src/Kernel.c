@@ -9,15 +9,17 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     VideoInitial(BootConfig);
     //ShellInitial();
     CharInit();
-    
-    for(int i=0;i<100;i++){
-        putchar(BootConfig->VideoConfig.FrameBufferBase,i,i,0,White,Black);
+    for(int j=0;j<1000;j++){
+        
+            putchar(65);
+        
+        putchar('\n');
+        
+            putchar(48);
+            //
+        
+        putchar('\n');
     }
-    
-	//putchar(BootConfig->VideoConfig.FrameBufferBase,35,1,0,White,Black);
-    //putchar(BootConfig->VideoConfig.FrameBufferBase,36,2,0,White,Black);
-	
-    
     
     return PassBack;
 }

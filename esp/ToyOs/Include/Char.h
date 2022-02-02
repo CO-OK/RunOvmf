@@ -1,5 +1,6 @@
-#include<Uefi.h>
+#pragma once
 #include<Color.h>
+#include<Video.h>
 #define ONEPIXEL uint32_t   /* pixel pointer */
 typedef struct {
     uint32_t magic;         /* magic bytes to identify PSF */
@@ -12,7 +13,7 @@ typedef struct {
     uint32_t width;         /* width in pixels */
 } PSF_font;
 
-void putchar(uint32_t fb,
+void _putchar(uint32_t fb,
     /* note that this is int, not char as it's a unicode character */
     unsigned short int c,
     /* cursor position on screen, in characters not in pixels */
@@ -20,5 +21,7 @@ void putchar(uint32_t fb,
     /* foreground and background colors, say 0xFFFFFF and 0x000000 */
     uint32_t fg, uint32_t bg);
 
+void putchar(unsigned short c);
 void CharInit();
+void RollBack();
 

@@ -1,3 +1,4 @@
+#pragma once
 typedef void VOID;
 typedef unsigned char UINT8;
 typedef UINT8 CHAR8;
