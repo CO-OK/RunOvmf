@@ -1,6 +1,6 @@
 #pragma once
 #include "Uefi.h"
-#include "Char.h"
+
 
 #pragma pack(1)
 

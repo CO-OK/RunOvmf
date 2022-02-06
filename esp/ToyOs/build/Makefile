@@ -181,6 +181,19 @@ Char/fast:
 	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Char.dir/build.make Src/CMakeFiles/Char.dir/build
 .PHONY : Char/fast
 
+#=============================================================================
+# Target rules for targets named Memory32
+
+# Build rule for target.
+Memory32: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Memory32
+.PHONY : Memory32
+
+# fast build rule for target.
+Memory32/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Memory32.dir/build.make Src/CMakeFiles/Memory32.dir/build
+.PHONY : Memory32/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +205,7 @@ help:
 	@echo "... Char"
 	@echo "... Kernel"
 	@echo "... Kernel.elf"
+	@echo "... Memory32"
 	@echo "... Shell"
 	@echo "... Video"
 .PHONY : help

@@ -77,11 +77,13 @@ Kernel_elf_EXTERNAL_OBJECTS = \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Video.dir/Video.c.o" \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Shell.dir/Shell.c.o" \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Kernel.dir/Kernel.c.o" \
+"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Memory32.dir/Memory32.c.o" \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Char.dir/Char.c.o"
 
 Kernel.elf: Src/CMakeFiles/Video.dir/Video.c.o
 Kernel.elf: Src/CMakeFiles/Shell.dir/Shell.c.o
 Kernel.elf: Src/CMakeFiles/Kernel.dir/Kernel.c.o
+Kernel.elf: Src/CMakeFiles/Memory32.dir/Memory32.c.o
 Kernel.elf: Src/CMakeFiles/Char.dir/Char.c.o
 Kernel.elf: CMakeFiles/Kernel.elf.dir/build.make
 Kernel.elf: CMakeFiles/Kernel.elf.dir/link.txt

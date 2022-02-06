@@ -9,17 +9,13 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     VideoInitial(BootConfig);
     //ShellInitial();
     CharInit();
-    for(int j=0;j<1000;j++){
-        
-            putchar(65);
-        
-        putchar('\n');
-        
-            putchar(48);
-            //
-        
-        putchar('\n');
-    }
-    
+    PrintStr("CharInit done...\n");
+    //MemoryInit();
+    PrintDec((UINTN)BootConfig->MemoryMap.MemroyMapSize);
+    PrintDec((UINTN)BootConfig->MemoryMap.DescriptorSize);
+    PrintDec((UINTN)BootConfig->MemoryMap.MapKey);
+    PrintDec((UINTN)BootConfig->MemoryMap.MemoryMapBuffer);
+    while(1){}
     return PassBack;
 }
+

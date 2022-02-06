@@ -17,6 +17,11 @@ add_library(Char
     OBJECT
     Char.c
 )
+
+add_library(Memory32
+    OBJECT
+    Memory32.c
+)
 target_include_directories(Video
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
@@ -30,6 +35,10 @@ target_include_directories(Shell
                             ${CMAKE_SOURCE_DIR}/Include
                           )
 target_include_directories(Char
+                            PUBLIC
+                            ${CMAKE_SOURCE_DIR}/Include
+                          )
+target_include_directories(Memory32
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
                           )

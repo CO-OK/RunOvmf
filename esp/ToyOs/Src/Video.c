@@ -1,5 +1,5 @@
 #include <Video.h>
-
+#include <Color.h>
 VIDEO_CONFIG *VideoConfig;
 UINT32 *VideoStart;
 UINT64 FrameBufferSize;

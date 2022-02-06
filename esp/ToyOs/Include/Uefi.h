@@ -1,4 +1,5 @@
 #pragma once
+
 typedef void VOID;
 typedef unsigned char UINT8;
 typedef UINT8 CHAR8;
@@ -12,6 +13,21 @@ typedef UINT16  uint16_t;
 typedef UINT32  uint32_t;
 typedef UINT64  uint64_t;
 #define NULL   ((void* )0)
+
+typedef struct{
+    /*如果给的内存空间足够则返回实际占用的内存空间*/
+    UINTN MemroyMapSize;
+    /*memory descriptor 数组首地址*/
+    VOID* MemoryMapBuffer;
+    /*ExitBootServices时用到*/
+    UINTN MapKey;
+    /*单个memory descriptor的大小*/
+    UINTN DescriptorSize;
+    /**/
+    UINT32 DescriptorVersion;
+
+}MemoryMapStatus;
+
 #pragma pack(1)
 typedef struct
 {
@@ -30,12 +46,10 @@ typedef struct
     UINT32                     PixelsPerScanLine;
 } VIDEO_CONFIG;
 
+#pragma pack()
+
 typedef struct
 {
   VIDEO_CONFIG VideoConfig;
-   /*
-   EFI_PHYSICAL_ADDRESS       FrameBufferBase;
-   UINT64                     FrameBufferSize;
-   */
+  MemoryMapStatus MemoryMap;
 } BOOT_CONFIG;
-#pragma pack()

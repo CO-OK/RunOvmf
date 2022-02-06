@@ -46,4 +46,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "Src/CMakeFiles/Shell.dir/DependInfo.cmake"
   "Src/CMakeFiles/Kernel.dir/DependInfo.cmake"
   "Src/CMakeFiles/Char.dir/DependInfo.cmake"
+  "Src/CMakeFiles/Memory32.dir/DependInfo.cmake"
   )
