@@ -106,12 +106,36 @@ void RollBack(){
 }
 
 
+void PrintStr(char* str){
+    while(*str!='\0'){
+        putchar(*str);
+        str++;
+    }
+    
+}
 
+void PrintDec(UINTN num){
+    char Dec[20];
+    UINT8 Len = 0;
+    UINT64 Trans = num;
+    for(int i = 0; i < 20; i++)
+    {
+        Dec[i] = (Trans % 10) + 48;
+        Trans = Trans / 10;
+        Len++;
+        if(Trans == 0)
+        {
+            break;
+        }  
+    }
 
+    for(int j = Len-1; j >= 0; j--)
+    {
+        putchar(Dec[j]);
+    }
 
-
-
-
+    putchar('\n');
+}
 
 
 

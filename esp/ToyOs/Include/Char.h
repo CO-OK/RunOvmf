@@ -24,4 +24,8 @@ void _putchar(uint32_t fb,
 void putchar(unsigned short c);
 void CharInit();
 void RollBack();
+/*打印字符串*/
+void PrintStr(char* str);
+/*打印10进制*/
+void PrintDec(UINTN num);
 
