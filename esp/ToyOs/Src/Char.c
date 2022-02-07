@@ -163,10 +163,14 @@ void PrintHex(UINT64 Number)
             break;
         }
     }
+    /*目前先用32位*/
+    /*for(int i=0;i<8-Len;i++)
+        putchar('0');*/
     for(int j = 0; j < Len; j++)
     {
         putchar(Hex[Len-j-1]);
     }  
+    
     
 }
 void printf(const char *format, ...){

@@ -12,7 +12,7 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     CharInit();
     //PrintStr("CharInit done...\n");
     MemoryInit(&BootConfig->MemoryMap);
-    
+    //printf("Mem init done...\n");
     while(1){}
     return PassBack;
 }
