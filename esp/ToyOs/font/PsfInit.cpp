@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include <bitset>
 #include<iostream>
+#include<stdarg.h>
 #include<limits.h>
 using namespace std;
 extern char _binary_font_psf_start;

@@ -2,6 +2,14 @@
 #include<Color.h>
 #include<Video.h>
 #define ONEPIXEL uint32_t   /* pixel pointer */
+/*printf相关这些好像都是编译器内置所以直接声明了*/
+typedef __builtin_va_list va_list;
+#define va_start(ap, param) __builtin_va_start(ap, param)
+#define va_end(ap)          __builtin_va_end(ap)
+#define va_arg(ap, type)    __builtin_va_arg(ap, type)
+
+
+/*字体文件头结构体*/
 typedef struct {
     uint32_t magic;         /* magic bytes to identify PSF */
     uint32_t version;       /* zero */
@@ -28,4 +36,9 @@ void RollBack();
 void PrintStr(char* str);
 /*打印10进制*/
 void PrintDec(UINTN num);
+/*打印16进制*/
+void PrintHex(UINT64 Number);
+
+/*printf*/
+void printf(const char *format, ...);
 

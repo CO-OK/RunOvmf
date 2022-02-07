@@ -137,7 +137,70 @@ void PrintDec(UINTN num){
     putchar('\n');
 }
 
-
+void PrintHex(UINT64 Number)
+{
+    UINT64 Trans = Number;
+    
+    putchar('0');
+    putchar('x');
+    char Hex[16];
+    int  Len = 0;
+    for(int i = 0; i < 16; i++)
+    {
+        Hex[i] = Trans & 0xF;
+        if(Hex[i] >= 0 && Hex[i] <= 9)
+        {
+            Hex[i] += 48;
+        }
+        if(Hex[i] > 9 && Hex[i] < 16)
+        {
+            Hex[i] += 55;
+        }
+        Trans = Trans >> 4;
+        Len++;
+        if(Trans == 0)
+        {
+            break;
+        }
+    }
+    for(int j = 0; j < Len; j++)
+    {
+        putchar(Hex[Len-j-1]);
+    }  
+    
+}
+void printf(const char *format, ...){
+    va_list arguments;
+    /* Initializing arguments to store all values after num */
+    va_start (arguments, format);
+    /*开始打印*/
+    while(*format!='\0'){
+        switch(*format){
+            case '%':{
+                format++;
+                if(*format=='d')
+                    PrintDec(va_arg(arguments,int));
+                else if(*format=='u')
+                    PrintDec(va_arg(arguments,UINT64));
+                else if(*format=='c')
+                    putchar(va_arg(arguments,char));
+                else if(*format=='x')
+                    PrintHex(va_arg(arguments,UINT64));
+                else{
+                    format--;
+                    putchar('%');
+                }
+                break;
+            }
+            default:{
+                putchar(*format);
+                break;
+            }
+        }
+        format++;
+    }
+    va_end(arguments);
+}
 
 
 
