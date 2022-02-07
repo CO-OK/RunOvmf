@@ -12,6 +12,8 @@ typedef UINT64 EFI_VIRTUAL_ADDRESS;
 typedef UINT16  uint16_t;
 typedef UINT32  uint32_t;
 typedef UINT64  uint64_t;
+#define IN
+#define OUT
 #define NULL   ((void* )0)
 
 typedef struct{

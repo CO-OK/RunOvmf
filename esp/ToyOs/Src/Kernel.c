@@ -11,8 +11,7 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     //ShellInitial();
     CharInit();
     //PrintStr("CharInit done...\n");
-    printf("num=%x\n",999);
-    printf("address=%u\n",BootConfig->MemoryMap.MemoryMapBuffer);
+    MemoryInit(&BootConfig->MemoryMap);
     
     while(1){}
     return PassBack;

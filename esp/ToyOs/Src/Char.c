@@ -134,7 +134,7 @@ void PrintDec(UINTN num){
         putchar(Dec[j]);
     }
 
-    putchar('\n');
+    //putchar('\n');
 }
 
 void PrintHex(UINT64 Number)
