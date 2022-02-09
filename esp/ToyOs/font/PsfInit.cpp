@@ -5,6 +5,7 @@
 #include<iostream>
 #include<stdarg.h>
 #include<limits.h>
+#include<stdbool.h>
 using namespace std;
 extern char _binary_font_psf_start;
 extern char _binary_font_psf_end;
@@ -29,6 +30,7 @@ void read_psf(){
     printf("bytes per glyph=%d\n",font->bytesperglyph);
     printf("height=%d\n",font->height);
     printf("width=%d\n",font->width);
+    bool a;
 }
 void psf_init()
 {
