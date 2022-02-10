@@ -194,6 +194,19 @@ Memory32/fast:
 	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Memory32.dir/build.make Src/CMakeFiles/Memory32.dir/build
 .PHONY : Memory32/fast
 
+#=============================================================================
+# Target rules for targets named PageFrameAllocator
+
+# Build rule for target.
+PageFrameAllocator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PageFrameAllocator
+.PHONY : PageFrameAllocator
+
+# fast build rule for target.
+PageFrameAllocator/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/PageFrameAllocator.dir/build.make Src/CMakeFiles/PageFrameAllocator.dir/build
+.PHONY : PageFrameAllocator/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -206,6 +219,7 @@ help:
 	@echo "... Kernel"
 	@echo "... Kernel.elf"
 	@echo "... Memory32"
+	@echo "... PageFrameAllocator"
 	@echo "... Shell"
 	@echo "... Video"
 .PHONY : help

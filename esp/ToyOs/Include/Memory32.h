@@ -2,6 +2,7 @@
 #include<Uefi.h>
 #include<Char.h>
 #include<Bool.h>
+//#include<PageFrameAllocator.h>
 /*内存描述符结构体*/
 typedef struct {
     UINT32 Type;
@@ -26,32 +27,7 @@ UINTN GetTotallMemory();
 void PrintMemoryMap(IN EFI_MEMORY_DESCRIPTOR* desc,IN int num);
 
 
-/*page frame allocator*/
 
-/*采用bitmap*/
-typedef struct{
-    /*bit map长度*/
-    UINTN size;
-    /*bit map起始地址*/
-    bool* MapBase;
-}BitMap;
-
-/*获得BitMap具体值*/
-typedef bool (*GetBitMapValueEntry)(IN UINTN);
-bool _GetBitMapValue(IN UINTN index,IN bool* MapBase);
-bool GetBitMapValue(IN UINTN index);
-
-/*设置BitMap具体值*/
-typedef void (*SetBitMapEntry)(IN bool ,IN UINTN );
-void _SetBitMap(IN bool value,IN UINTN index,IN bool* MapBase);
-void SetBitMap(IN bool value,IN UINTN index);
-
-/*内存操作的结构体*/
-typedef struct{
-    GetBitMapValueEntry GetMapValue;
-    SetBitMapEntry SetMap;
-    GetTotallMemoryEntry GetTotalMemory;
-}MemoryControlTable;
 
 
 

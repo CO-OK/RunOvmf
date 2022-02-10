@@ -1,6 +1,6 @@
 #include <Kernel.h>
-extern MemoryControlTable MemCtrlTable;
-
+#include<PageFrameAllocator.h>
+extern PageFrameAllocator Allocator;
 
 UINT64 KernelStart(BOOT_CONFIG *BootConfig)
 {  
@@ -14,16 +14,18 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     
     MemoryInit(&BootConfig->MemoryMap);
     
-    MemCtrlTable.SetMap(0,false);
-    MemCtrlTable.SetMap(1,true);
-    MemCtrlTable.SetMap(2,false);
-    for(int i=0;i<24;i++){
+    // MemCtrlTable.SetMap(0,false);
+    // MemCtrlTable.SetMap(1,true);
+    // MemCtrlTable.SetMap(2,false);
+    // for(int i=0;i<24;i++){
         
-        printf("%d\n",MemCtrlTable.GetMapValue(i));
+    //     printf("%d\n",MemCtrlTable.GetMapValue(i));
         
        
+    // }
+    for(int i=0;i<10;i++){
+        printf("%x\n",(UINT64)Allocator.pageCtrlTable.RequestPage());
     }
-    printf("done\n");
     while(1){}
     return PassBack;
 }

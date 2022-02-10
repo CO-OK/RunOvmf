@@ -28,5 +28,6 @@ target_link_libraries(Kernel.elf PUBLIC Kernel)
 #target_link_libraries(Kernel.elf PUBLIC Font)
 target_link_libraries(Kernel.elf PUBLIC Memory32)
 target_link_libraries(Kernel.elf PUBLIC Char)
+target_link_libraries(Kernel.elf PUBLIC PageFrameAllocator)
 
 

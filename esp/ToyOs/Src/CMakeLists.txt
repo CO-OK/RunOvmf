@@ -22,6 +22,12 @@ add_library(Memory32
     OBJECT
     Memory32.c
 )
+
+add_library(PageFrameAllocator
+    OBJECT
+    PageFrameAllocator.c
+)
+
 target_include_directories(Video
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
@@ -42,3 +48,7 @@ target_include_directories(Memory32
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
                           )
+target_include_directories(PageFrameAllocator
+                            PUBLIC
+                            ${CMAKE_SOURCE_DIR}/Include
+                          )                         
