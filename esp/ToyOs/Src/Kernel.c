@@ -1,7 +1,8 @@
 #include <Kernel.h>
 #include<PageFrameAllocator.h>
 extern PageFrameAllocator Allocator;
-
+extern uint64_t _KernelStart;
+extern uint64_t _KernelEnd;
 UINT64 KernelStart(BOOT_CONFIG *BootConfig)
 {  
     
@@ -23,9 +24,8 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
         
        
     // }
-    for(int i=0;i<10;i++){
-        printf("%x\n",(UINT64)Allocator.pageCtrlTable.RequestPage());
-    }
+    printf("KernelStart=%x\nKernelEnd=%x\n",&_KernelStart,&_KernelEnd);
+    printf("KernelSize=%x\n",&_KernelEnd-&_KernelStart);
     while(1){}
     return PassBack;
 }
