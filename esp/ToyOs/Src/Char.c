@@ -190,6 +190,8 @@ void printf(const char *format, ...){
                     putchar(va_arg(arguments,char));
                 else if(*format=='x')
                     PrintHex(va_arg(arguments,UINT64));
+                else if(*format=='s')
+                    PrintStr(va_arg(arguments,char*));
                 else{
                     format--;
                     putchar('%');

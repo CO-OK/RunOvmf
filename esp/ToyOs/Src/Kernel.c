@@ -1,7 +1,9 @@
 #include <Kernel.h>
 #include<PageFrameAllocator.h>
 extern PageFrameAllocator Allocator;
+/*内核起始*/
 extern uint64_t _KernelStart;
+/*内核终止*/
 extern uint64_t _KernelEnd;
 UINT64 KernelStart(BOOT_CONFIG *BootConfig)
 {  
