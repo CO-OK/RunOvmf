@@ -10,7 +10,25 @@
 using namespace std;
 extern char _binary_font_psf_start;
 extern char _binary_font_psf_end;
-
+int GetFilePointer(char*str){
+    int pos=0;
+    //int flag=0;
+    while(*str!='\0'){
+        if(*str=='/'){
+            /*向后查找有没有 / */
+            //flag=1;
+            str++;
+            pos++;
+            return pos+GetFilePointer(str);
+        }
+        else{
+            str++;
+            pos++;
+        }
+    }
+    //if(flag==1)return pos;
+    return 0;
+}
 #define PSF_FONT_MAGIC 0x864ab572
 unsigned char temp[28][84]={};
 typedef struct {
@@ -63,7 +81,9 @@ const char* file[]={
         "Assert.c"
     };
 int main(){
+
     read_psf();
     psf_init();
-    printf("%s\n",file[1]);
+    printf("%d\n",GetFilePointer("/home/v/program/EFI/runOvmf/esp/ToyOs/build")  );
+    
 }

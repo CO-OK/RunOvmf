@@ -5,9 +5,11 @@
 
 #define ASSERT(expr) \
     ((expr) || \
-        aFailed(F_NUM, __LINE__))
+        aFailed(__FILE__, __LINE__))
 
 
 
-int aFailed(int num, int line);
+int aFailed(char*file, int line);
+/*得到完整文件路径中的文件名*/
+int GetFilePointer(char*str);
 
