@@ -6,6 +6,7 @@
 #include<stdarg.h>
 #include<limits.h>
 #include<stdbool.h>
+#include<assert.h>
 using namespace std;
 extern char _binary_font_psf_start;
 extern char _binary_font_psf_end;
@@ -52,12 +53,17 @@ void psf_init()
     printf("%x\n",p+1);
      
 }
+const char* file[]={
+        "Char.c",
+        "Kernel.c",
+        "Memory32.c",
+        "PageFrameAllocator.c",
+        "Shell.c",
+        "Video.c",
+        "Assert.c"
+    };
 int main(){
     read_psf();
     psf_init();
-    for(int i=0;i<28;i++){
-        for(int j=0;j<84;j++){
-            printf("%d\n",temp[i][j]);
-        }
-    }
+    printf("%s\n",file[1]);
 }

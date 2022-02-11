@@ -28,6 +28,11 @@ add_library(PageFrameAllocator
     PageFrameAllocator.c
 )
 
+add_library(Assert
+    OBJECT
+    Assert.c
+)
+
 target_include_directories(Video
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
@@ -52,3 +57,7 @@ target_include_directories(PageFrameAllocator
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
                           )                         
+target_include_directories(Assert
+                            PUBLIC
+                            ${CMAKE_SOURCE_DIR}/Include
+                          )

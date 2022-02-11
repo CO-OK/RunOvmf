@@ -1,4 +1,6 @@
 #include<Char.h>
+#include<Assert.h>
+FILENUM(0);
 /* the linear framebuffer */
 //extern char *fb;
 /* number of bytes in each line, it's possible it's not screen width * bytesperpixel! */

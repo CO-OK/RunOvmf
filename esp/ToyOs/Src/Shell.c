@@ -1,4 +1,6 @@
 #include <Shell.h>
+#include<Assert.h>
+FILENUM(4);
 BASE Base;
 char *Hello;
 

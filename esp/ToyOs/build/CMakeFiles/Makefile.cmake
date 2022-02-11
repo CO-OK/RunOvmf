@@ -48,4 +48,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "Src/CMakeFiles/Char.dir/DependInfo.cmake"
   "Src/CMakeFiles/Memory32.dir/DependInfo.cmake"
   "Src/CMakeFiles/PageFrameAllocator.dir/DependInfo.cmake"
+  "Src/CMakeFiles/Assert.dir/DependInfo.cmake"
   )

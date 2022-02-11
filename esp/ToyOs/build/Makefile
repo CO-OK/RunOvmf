@@ -207,6 +207,19 @@ PageFrameAllocator/fast:
 	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/PageFrameAllocator.dir/build.make Src/CMakeFiles/PageFrameAllocator.dir/build
 .PHONY : PageFrameAllocator/fast
 
+#=============================================================================
+# Target rules for targets named Assert
+
+# Build rule for target.
+Assert: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Assert
+.PHONY : Assert
+
+# fast build rule for target.
+Assert/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Assert.dir/build.make Src/CMakeFiles/Assert.dir/build
+.PHONY : Assert/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -215,6 +228,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Assert"
 	@echo "... Char"
 	@echo "... Kernel"
 	@echo "... Kernel.elf"

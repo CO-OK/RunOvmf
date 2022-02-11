@@ -1,10 +1,15 @@
 #include <Kernel.h>
 #include<PageFrameAllocator.h>
+#include<Assert.h>
+FILENUM(1);
 extern PageFrameAllocator Allocator;
 /*内核起始*/
 extern uint64_t _KernelStart;
 /*内核终止*/
 extern uint64_t _KernelEnd;
+
+
+
 UINT64 KernelStart(BOOT_CONFIG *BootConfig)
 {  
     
@@ -14,7 +19,7 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     //ShellInitial();
     CharInit();
     //PrintStr("CharInit done...\n");
-    
+    ASSERT(7==8);
     MemoryInit(&BootConfig->MemoryMap);
     
     // MemCtrlTable.SetMap(0,false);

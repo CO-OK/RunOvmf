@@ -1,6 +1,10 @@
 #include<PageFrameAllocator.h>
 #include<Bool.h>
 #include<Uefi.h>
+#include<Assert.h>
+
+FILENUM(3);
+
 /*总可用内存*/
 static uint64_t FreeMemory;
 /*系统保留内存*/

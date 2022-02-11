@@ -1,5 +1,7 @@
 #include<Memory32.h>
 #include<PageFrameAllocator.h>
+#include<Assert.h>
+FILENUM(2);
 static UINT64 TotallMemorySize=0;
 
 
