@@ -79,16 +79,20 @@ Kernel_elf_EXTERNAL_OBJECTS = \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Kernel.dir/Kernel.c.o" \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Memory32.dir/Memory32.c.o" \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Char.dir/Char.c.o" \
-"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/PageFrameAllocator.dir/PageFrameAllocator.c.o" \
-"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Assert.dir/Assert.c.o"
+"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Paging/CMakeFiles/PageFrameAllocator.dir/PageFrameAllocator.c.o" \
+"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Assert.dir/Assert.c.o" \
+"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Paging/CMakeFiles/PageMapIndexer.dir/PageMapIndexer.c.o" \
+"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Paging/CMakeFiles/PageTableManager.dir/PageTableManager.c.o"
 
 Kernel.elf: Src/CMakeFiles/Video.dir/Video.c.o
 Kernel.elf: Src/CMakeFiles/Shell.dir/Shell.c.o
 Kernel.elf: Src/CMakeFiles/Kernel.dir/Kernel.c.o
 Kernel.elf: Src/CMakeFiles/Memory32.dir/Memory32.c.o
 Kernel.elf: Src/CMakeFiles/Char.dir/Char.c.o
-Kernel.elf: Src/CMakeFiles/PageFrameAllocator.dir/PageFrameAllocator.c.o
+Kernel.elf: Src/Paging/CMakeFiles/PageFrameAllocator.dir/PageFrameAllocator.c.o
 Kernel.elf: Src/CMakeFiles/Assert.dir/Assert.c.o
+Kernel.elf: Src/Paging/CMakeFiles/PageMapIndexer.dir/PageMapIndexer.c.o
+Kernel.elf: Src/Paging/CMakeFiles/PageTableManager.dir/PageTableManager.c.o
 Kernel.elf: CMakeFiles/Kernel.elf.dir/build.make
 Kernel.elf: CMakeFiles/Kernel.elf.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking C executable Kernel.elf"

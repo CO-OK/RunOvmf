@@ -19,7 +19,7 @@ set(CMAKE_EXE_LINKER_FLAGS    "${LDFLAGS}")
 
 add_subdirectory(Src)
 
-
+add_subdirectory(Src/Paging)
 
 
 add_executable(Kernel.elf )
@@ -32,5 +32,6 @@ target_link_libraries(Kernel.elf PUBLIC Memory32)
 target_link_libraries(Kernel.elf PUBLIC Char)
 target_link_libraries(Kernel.elf PUBLIC PageFrameAllocator)
 target_link_libraries(Kernel.elf PUBLIC Assert)
-
+target_link_libraries(Kernel.elf PUBLIC PageMapIndexer)
+target_link_libraries(Kernel.elf PUBLIC PageTableManager)
 

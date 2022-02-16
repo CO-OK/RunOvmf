@@ -23,10 +23,7 @@ add_library(Memory32
     Memory32.c
 )
 
-add_library(PageFrameAllocator
-    OBJECT
-    PageFrameAllocator.c
-)
+
 
 add_library(Assert
     OBJECT
@@ -53,10 +50,7 @@ target_include_directories(Memory32
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
                           )
-target_include_directories(PageFrameAllocator
-                            PUBLIC
-                            ${CMAKE_SOURCE_DIR}/Include
-                          )                         
+                        
 target_include_directories(Assert
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include

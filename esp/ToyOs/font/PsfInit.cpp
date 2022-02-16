@@ -10,25 +10,22 @@
 using namespace std;
 extern char _binary_font_psf_start;
 extern char _binary_font_psf_end;
-int GetFilePointer(char*str){
-    int pos=0;
-    //int flag=0;
-    while(*str!='\0'){
-        if(*str=='/'){
-            /*向后查找有没有 / */
-            //flag=1;
-            str++;
-            pos++;
-            return pos+GetFilePointer(str);
-        }
-        else{
-            str++;
-            pos++;
-        }
-    }
-    //if(flag==1)return pos;
-    return 0;
-}
+typedef struct
+{
+  uint64_t present                   :1;
+  uint64_t writeable                 :1;
+  uint64_t user_access               :1;
+  uint64_t write_through             :1;
+  uint64_t cache_disabled            :1;
+  uint64_t accessed                  :1;
+  uint64_t ignored_3                 :1;
+  uint64_t size                      :1; // must be 0
+  uint64_t ignored_2                 :4;
+  uint64_t page_ppn                  :28;
+  uint64_t reserved_1                :12; // must be 0
+  uint64_t ignored_1                 :11;
+  uint64_t execution_disabled        :1;
+} PageMapLevel4Entry ;
 #define PSF_FONT_MAGIC 0x864ab572
 unsigned char temp[28][84]={};
 typedef struct {
@@ -84,6 +81,6 @@ int main(){
 
     read_psf();
     psf_init();
-    printf("%d\n",GetFilePointer("/home/v/program/EFI/runOvmf/esp/ToyOs/build")  );
+    printf("%d\n",sizeof(PageMapLevel4Entry));
     
 }

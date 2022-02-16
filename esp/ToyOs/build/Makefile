@@ -195,19 +195,6 @@ Memory32/fast:
 .PHONY : Memory32/fast
 
 #=============================================================================
-# Target rules for targets named PageFrameAllocator
-
-# Build rule for target.
-PageFrameAllocator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PageFrameAllocator
-.PHONY : PageFrameAllocator
-
-# fast build rule for target.
-PageFrameAllocator/fast:
-	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/PageFrameAllocator.dir/build.make Src/CMakeFiles/PageFrameAllocator.dir/build
-.PHONY : PageFrameAllocator/fast
-
-#=============================================================================
 # Target rules for targets named Assert
 
 # Build rule for target.
@@ -219,6 +206,45 @@ Assert: cmake_check_build_system
 Assert/fast:
 	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Assert.dir/build.make Src/CMakeFiles/Assert.dir/build
 .PHONY : Assert/fast
+
+#=============================================================================
+# Target rules for targets named PageFrameAllocator
+
+# Build rule for target.
+PageFrameAllocator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PageFrameAllocator
+.PHONY : PageFrameAllocator
+
+# fast build rule for target.
+PageFrameAllocator/fast:
+	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/PageFrameAllocator.dir/build.make Src/Paging/CMakeFiles/PageFrameAllocator.dir/build
+.PHONY : PageFrameAllocator/fast
+
+#=============================================================================
+# Target rules for targets named PageMapIndexer
+
+# Build rule for target.
+PageMapIndexer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PageMapIndexer
+.PHONY : PageMapIndexer
+
+# fast build rule for target.
+PageMapIndexer/fast:
+	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/PageMapIndexer.dir/build.make Src/Paging/CMakeFiles/PageMapIndexer.dir/build
+.PHONY : PageMapIndexer/fast
+
+#=============================================================================
+# Target rules for targets named PageTableManager
+
+# Build rule for target.
+PageTableManager: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PageTableManager
+.PHONY : PageTableManager
+
+# fast build rule for target.
+PageTableManager/fast:
+	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/PageTableManager.dir/build.make Src/Paging/CMakeFiles/PageTableManager.dir/build
+.PHONY : PageTableManager/fast
 
 # Help Target
 help:
@@ -234,6 +260,8 @@ help:
 	@echo "... Kernel.elf"
 	@echo "... Memory32"
 	@echo "... PageFrameAllocator"
+	@echo "... PageMapIndexer"
+	@echo "... PageTableManager"
 	@echo "... Shell"
 	@echo "... Video"
 .PHONY : help

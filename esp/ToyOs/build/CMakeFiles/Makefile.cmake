@@ -9,6 +9,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
   "../Src/CMakeLists.txt"
+  "../Src/Paging/CMakeLists.txt"
   "CMakeFiles/3.22.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.2/CMakeSystem.cmake"
   "/usr/share/cmake/Modules/CMakeCInformation.cmake"
@@ -37,6 +38,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "Src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Src/Paging/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -47,6 +49,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "Src/CMakeFiles/Kernel.dir/DependInfo.cmake"
   "Src/CMakeFiles/Char.dir/DependInfo.cmake"
   "Src/CMakeFiles/Memory32.dir/DependInfo.cmake"
-  "Src/CMakeFiles/PageFrameAllocator.dir/DependInfo.cmake"
   "Src/CMakeFiles/Assert.dir/DependInfo.cmake"
+  "Src/Paging/CMakeFiles/PageFrameAllocator.dir/DependInfo.cmake"
+  "Src/Paging/CMakeFiles/PageMapIndexer.dir/DependInfo.cmake"
+  "Src/Paging/CMakeFiles/PageTableManager.dir/DependInfo.cmake"
   )

@@ -25,6 +25,8 @@ UINTN _GetTotallMemory(IN EFI_MEMORY_DESCRIPTOR* desc,IN int num);
 typedef UINTN (*GetTotallMemoryEntry)();
 UINTN GetTotallMemory();
 void PrintMemoryMap(IN EFI_MEMORY_DESCRIPTOR* desc,IN int num);
+/*memset*/
+void memset(void* start, uint8_t value, uint64_t num);
 
 
 
