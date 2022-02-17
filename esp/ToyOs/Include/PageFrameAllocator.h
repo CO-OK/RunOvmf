@@ -15,9 +15,9 @@ bool _GetBitMapValue(IN UINTN index,IN bool* MapBase);
 bool GetBitMapValue(IN UINTN index);
 
 /*设置BitMap具体值*/
-typedef void (*SetBitMapEntry)(IN UINTN ,IN bool);
-void _SetBitMap(IN bool value,IN UINTN index,IN bool* MapBase);
-void SetBitMap(IN UINTN index ,IN bool value);
+typedef bool (*SetBitMapEntry)(IN UINTN ,IN bool);
+bool _SetBitMap(IN bool value,IN UINTN index,IN bool* MapBase);
+bool SetBitMap(IN UINTN index ,IN bool value);
 
 /*BitMap操作的结构体*/
 typedef struct{

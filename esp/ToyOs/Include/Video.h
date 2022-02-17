@@ -2,6 +2,9 @@
 #include "Uefi.h"
 
 
+
+
+
 #pragma pack(1)
 
 typedef struct
@@ -26,7 +29,7 @@ typedef struct
 
 #pragma pack()
 
-int VideoInitial(BOOT_CONFIG *BootConfig);
+
 int DrawPixel(PIXEL Pixel);
 int DrawBlock(BLOCK Block);
 

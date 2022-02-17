@@ -30,3 +30,13 @@ target_include_directories(PageTableManager
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
                           )
+
+add_library(Paging
+    OBJECT
+    Paging.c
+)
+
+target_include_directories(Paging
+                            PUBLIC
+                            ${CMAKE_SOURCE_DIR}/Include
+                          )

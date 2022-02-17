@@ -246,6 +246,19 @@ PageTableManager/fast:
 	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/PageTableManager.dir/build.make Src/Paging/CMakeFiles/PageTableManager.dir/build
 .PHONY : PageTableManager/fast
 
+#=============================================================================
+# Target rules for targets named Paging
+
+# Build rule for target.
+Paging: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Paging
+.PHONY : Paging
+
+# fast build rule for target.
+Paging/fast:
+	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/Paging.dir/build.make Src/Paging/CMakeFiles/Paging.dir/build
+.PHONY : Paging/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -262,6 +275,7 @@ help:
 	@echo "... PageFrameAllocator"
 	@echo "... PageMapIndexer"
 	@echo "... PageTableManager"
+	@echo "... Paging"
 	@echo "... Shell"
 	@echo "... Video"
 .PHONY : help

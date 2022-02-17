@@ -42,3 +42,6 @@ void PrintHex(UINT64 Number);
 /*printf*/
 void printf(const char *format, ...);
 
+/*改变光标所在位置*/
+void ChangeRow(int row);
+void ChangeCol(int col);

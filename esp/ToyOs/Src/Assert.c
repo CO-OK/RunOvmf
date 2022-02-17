@@ -44,6 +44,7 @@ FILENUM(6);
 // }
 int aFailed(char*file, int line){
     printf("Assertion failed at line %d in file: %s\n",line,file+GetFilePointer(file));
+    while(1){}
 }
 int GetFilePointer(char*str){
     int pos=0;

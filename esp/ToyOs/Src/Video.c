@@ -1,6 +1,7 @@
 #include <Video.h>
 #include <Color.h>
 #include<Assert.h>
+#include<VideoInit.h>
 FILENUM(5);
 VIDEO_CONFIG *VideoConfig;
 UINT32 *VideoStart;

@@ -1,5 +1,7 @@
-#include<Uefi.h>
 #pragma once
+#include<Uefi.h>
+
+
 /*
 
     present
@@ -123,3 +125,5 @@ typedef struct
   uint64_t ignored_1                 :11;
   uint64_t execution_disabled        :1;
 } PageTableEntry;
+
+

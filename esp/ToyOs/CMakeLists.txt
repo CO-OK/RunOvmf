@@ -34,4 +34,5 @@ target_link_libraries(Kernel.elf PUBLIC PageFrameAllocator)
 target_link_libraries(Kernel.elf PUBLIC Assert)
 target_link_libraries(Kernel.elf PUBLIC PageMapIndexer)
 target_link_libraries(Kernel.elf PUBLIC PageTableManager)
+target_link_libraries(Kernel.elf PUBLIC Paging)
 

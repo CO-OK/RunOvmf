@@ -285,3 +285,10 @@ void CharInit(){
   Row=28;
   Col=84;
 }
+
+void ChangeRow(int row){
+    CurrentRow=row;
+}
+void ChangeCol(int col){
+    CurrentCol=col;
+}

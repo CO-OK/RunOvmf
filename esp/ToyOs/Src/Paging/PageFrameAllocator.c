@@ -41,9 +41,10 @@ void ReadEFIMemoryMap(IN EFI_MEMORY_DESCRIPTOR* desc,IN int num,IN UINTN Descrip
     UINT64 TotalMemory=GetTotallMemory();
 
     /*计算BitMap需要的大小，以字节为单位*/
-    UINT64 BitMapSize=TotalMemory/4096/8 +1;
+    UINT64 BitMapSize=(TotalMemory/4096)/8 +1;
     /*初始化BitMap*/
     InitBitMap(BitMapSize,LargestFreeMemoryBase);
+    //printf("bit map size=%x\n",BitMapSize);
     //printf("Init bitmap done\n");
     /*初始化PageControlTable*/
     Allocator.pageCtrlTable.FreePage=FreePage;
@@ -90,9 +91,15 @@ void FreePage(void*pageAddress){
     /*计算index*/
     UINT64 index = ((UINTN)pageAddress)/4096;
     if(Allocator.bitMapCtrlTable.GetMapValue(index)==false)return;
-    Allocator.bitMapCtrlTable.SetMap(index,false);
-    FreeMemory+=4096;
-    UsedMemory-=4096;
+    if(Allocator.bitMapCtrlTable.SetMap(index,false)){
+        FreeMemory+=4096;
+        UsedMemory-=4096;
+    }
+    else{
+        
+        ASSERT(7==8);
+    }
+    
 }
 
 void FreePages(void*pageAddress,UINT64 pageCount){
@@ -105,9 +112,16 @@ void LockPage(void*pageAddress){
     /*计算index*/
     UINT64 index = ((UINTN)pageAddress)/4096;
     if(Allocator.bitMapCtrlTable.GetMapValue(index)==true)return;
-    Allocator.bitMapCtrlTable.SetMap(index,true);
-    FreeMemory-=4096;
-    UsedMemory+=4096;
+    if(Allocator.bitMapCtrlTable.SetMap(index,true)){
+        FreeMemory-=4096;
+        UsedMemory+=4096;
+    }
+    else{
+        printf("index=%x\n",index);
+        ASSERT(7==8);
+        
+    }
+    
 }
 
 void LockPages(void*pageAddress,UINT64 pageCount){
@@ -119,9 +133,14 @@ void UnReservePage(void*pageAddress){
     /*计算index*/
     UINT64 index = ((UINTN)pageAddress)/4096;
     if(Allocator.bitMapCtrlTable.GetMapValue(index)==false)return;
-    Allocator.bitMapCtrlTable.SetMap(index,false);
-    FreeMemory+=4096;
-    ReservedMemory-=4096;
+    if(Allocator.bitMapCtrlTable.SetMap(index,false)){
+        FreeMemory+=4096;
+        ReservedMemory-=4096;
+    }
+    else{
+        ASSERT(7==8);
+    }
+    
 }
 
 void UnReservePages(void*pageAddress,UINT64 pageCount){
@@ -134,9 +153,14 @@ void ReservePage(void*pageAddress){
     /*计算index*/
     UINT64 index = ((UINTN)pageAddress)/4096;
     if(Allocator.bitMapCtrlTable.GetMapValue(index)==true)return;
-    Allocator.bitMapCtrlTable.SetMap(index,true);
-    FreeMemory-=4096;
-    ReservedMemory+=4096;
+    if(Allocator.bitMapCtrlTable.SetMap(index,true)){
+        FreeMemory-=4096;
+        ReservedMemory+=4096;
+    }
+    else{
+        //ASSERT(7==8);
+    }
+    
 }
 
 void ReservePages(void*pageAddress,UINT64 pageCount){
@@ -172,6 +196,7 @@ void* RequestPage(){
 
 
 bool _GetBitMapValue(IN UINTN index,IN bool* MapBase){
+    if(index > Allocator.PageBitMap.size*8) return false;
     /*所在字节与所在字节中的所在位*/
     UINTN ByteIndex=index/8;
     UINT8 BitIndex=index%8;
@@ -186,17 +211,20 @@ bool GetBitMapValue(IN UINTN index){
     return _GetBitMapValue(index,Allocator.PageBitMap.MapBase);
 }
 
-void _SetBitMap(IN bool value,IN UINTN index,IN bool* MapBase){
+bool _SetBitMap(IN bool value,IN UINTN index,IN bool* MapBase){
+    if(index > Allocator.PageBitMap.size*8) return false;
     /*所在字节与所在字节中的所在位*/
     UINTN ByteIndex=index/8;
     UINT8 BitIndex=index%8;
     UINT8 mask=0b10000000>>BitIndex;
     if(value>0){
         MapBase[ByteIndex] |= mask;
-        return;
+        return true;
     }
     MapBase[ByteIndex] &= ~mask;
+    return true;
 }
-void SetBitMap(IN UINTN index,IN bool value){
-    _SetBitMap(value,index,Allocator.PageBitMap.MapBase);
+bool SetBitMap(IN UINTN index,IN bool value){
+    //printf("index=%x\n",index);
+    return _SetBitMap(value,index,Allocator.PageBitMap.MapBase);
 }

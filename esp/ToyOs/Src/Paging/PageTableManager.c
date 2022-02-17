@@ -24,7 +24,7 @@ void MapMemory(void* virtualMemory, void* physicalMemory,PageTableManager*pageTa
         /*修改PML4E*/
         PML4E.present = true;
         //PML4E.accessed = true;
-        PML4E.user_access =true;
+        //PML4E.user_access =true;
         PML4E.writeable=true;
         PML4E.page_ppn = (uint64_t)PDP >> 12;
         pageTableManager->PML4[pageMapIndexer.PDP_i] = PML4E;
@@ -51,7 +51,7 @@ void MapMemory(void* virtualMemory, void* physicalMemory,PageTableManager*pageTa
         memset(PDT,0,4096);
         //PDPE.accessed=true;
         PDPE.present = true;
-        PDPE.user_access =true;
+        //PDPE.user_access =true;
         PDPE.writeable=true;
         PDPE.page_ppn = (uint64_t)PDT>>12;
         PDP[pageMapIndexer.PD_i] = PDPE;
@@ -70,7 +70,7 @@ void MapMemory(void* virtualMemory, void* physicalMemory,PageTableManager*pageTa
         memset(PT,0,4096);
         //PDTE.accessed=true;
         PDTE.present=true;
-        PDTE.user_access=true;
+        //PDTE.user_access=true;
         PDTE.writeable=true;
         PDTE.page_ppn=(uint64_t)PT>>12;
         PDT[pageMapIndexer.PT_i]=PDTE;
@@ -82,9 +82,10 @@ void MapMemory(void* virtualMemory, void* physicalMemory,PageTableManager*pageTa
     /*四级页表中的页表项*/
     PageTableEntry PTE = PT[pageMapIndexer.P_i];
     PTE.present=true;
-    PTE.user_access=true;
+    //PTE.user_access=true;
     PTE.writeable=true;
     //PTE.accessed=true;
     PTE.page_ppn=(uint64_t)physicalMemory>>12;
     PT[pageMapIndexer.P_i]=PTE;
 }
+
