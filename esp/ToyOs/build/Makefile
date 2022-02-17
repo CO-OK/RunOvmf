@@ -259,6 +259,19 @@ Paging/fast:
 	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/Paging.dir/build.make Src/Paging/CMakeFiles/Paging.dir/build
 .PHONY : Paging/fast
 
+#=============================================================================
+# Target rules for targets named GDT
+
+# Build rule for target.
+GDT: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GDT
+.PHONY : GDT
+
+# fast build rule for target.
+GDT/fast:
+	$(MAKE) $(MAKESILENT) -f Src/GDT/CMakeFiles/GDT.dir/build.make Src/GDT/CMakeFiles/GDT.dir/build
+.PHONY : GDT/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -269,6 +282,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Assert"
 	@echo "... Char"
+	@echo "... GDT"
 	@echo "... Kernel"
 	@echo "... Kernel.elf"
 	@echo "... Memory32"

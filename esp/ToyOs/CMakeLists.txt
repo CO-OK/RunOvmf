@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 project(Kernel.elf LANGUAGES C)
 
 # 设置编译器
-SET(CMAKE_C_COMPILER "/usr/bin/clang")
+SET(CMAKE_C_COMPILER "/usr/bin/gcc")
 # 编译器选项 不能用-m32
 
 SET(CFLAGS "-fno-stack-protector -nostdlib  -ffreestanding ")
@@ -20,6 +20,7 @@ set(CMAKE_EXE_LINKER_FLAGS    "${LDFLAGS}")
 add_subdirectory(Src)
 
 add_subdirectory(Src/Paging)
+add_subdirectory(Src/GDT)
 
 
 add_executable(Kernel.elf )
@@ -35,4 +36,5 @@ target_link_libraries(Kernel.elf PUBLIC Assert)
 target_link_libraries(Kernel.elf PUBLIC PageMapIndexer)
 target_link_libraries(Kernel.elf PUBLIC PageTableManager)
 target_link_libraries(Kernel.elf PUBLIC Paging)
+target_link_libraries(Kernel.elf PUBLIC GDT)
 

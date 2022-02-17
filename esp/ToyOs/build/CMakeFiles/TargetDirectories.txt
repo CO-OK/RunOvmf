@@ -15,3 +15,6 @@
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Paging/CMakeFiles/Paging.dir
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Paging/CMakeFiles/edit_cache.dir
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Paging/CMakeFiles/rebuild_cache.dir
+/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/GDT/CMakeFiles/GDT.dir
+/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/GDT/CMakeFiles/edit_cache.dir
+/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/GDT/CMakeFiles/rebuild_cache.dir

@@ -9,6 +9,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
   "../Src/CMakeLists.txt"
+  "../Src/GDT/CMakeLists.txt"
   "../Src/Paging/CMakeLists.txt"
   "CMakeFiles/3.22.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.2/CMakeSystem.cmake"
@@ -39,6 +40,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "Src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Src/Paging/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Src/GDT/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -54,4 +56,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "Src/Paging/CMakeFiles/PageMapIndexer.dir/DependInfo.cmake"
   "Src/Paging/CMakeFiles/PageTableManager.dir/DependInfo.cmake"
   "Src/Paging/CMakeFiles/Paging.dir/DependInfo.cmake"
+  "Src/GDT/CMakeFiles/GDT.dir/DependInfo.cmake"
   )
