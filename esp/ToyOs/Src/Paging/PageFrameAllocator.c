@@ -16,6 +16,8 @@ bool IsInitialized = false;
 /*page frame allocator*/
 PageFrameAllocator Allocator;
 
+/**/
+uint64_t pageBitMapIndex=0;
 
 void ReadEFIMemoryMap(IN EFI_MEMORY_DESCRIPTOR* desc,IN int num,IN UINTN DescriptorSize){
     if(IsInitialized) return;
@@ -94,6 +96,7 @@ void FreePage(void*pageAddress){
     if(Allocator.bitMapCtrlTable.SetMap(index,false)){
         FreeMemory+=4096;
         UsedMemory-=4096;
+        if(pageBitMapIndex>index)pageBitMapIndex=index;
     }
     else{
         
@@ -136,6 +139,7 @@ void UnReservePage(void*pageAddress){
     if(Allocator.bitMapCtrlTable.SetMap(index,false)){
         FreeMemory+=4096;
         ReservedMemory-=4096;
+        if(pageBitMapIndex>index)pageBitMapIndex=index;
     }
     else{
         ASSERT(7==8);
@@ -182,13 +186,13 @@ uint64_t GetReservedMemory(){
 }
 
 void* RequestPage(){
-    for(uint64_t i=0;i<Allocator.PageBitMap.size*8;i++){
+    for(;pageBitMapIndex<Allocator.PageBitMap.size*8;pageBitMapIndex++){
         /*没找到空闲页就继续*/
-        if(Allocator.bitMapCtrlTable.GetMapValue(i)==true)continue;
+        if(Allocator.bitMapCtrlTable.GetMapValue(pageBitMapIndex)==true)continue;
         /*找到则分配*/
-        Allocator.bitMapCtrlTable.SetMap(i,false);
-        Allocator.pageCtrlTable.LockPage((void*)(i*4096));
-        return (void*)(i*4096);
+        Allocator.bitMapCtrlTable.SetMap(pageBitMapIndex,false);
+        Allocator.pageCtrlTable.LockPage((void*)(pageBitMapIndex*4096));
+        return (void*)(pageBitMapIndex*4096);
     }
     /*如果都没找到则需要换页之类的，现在先不实现*/
     return NULL;
