@@ -11,8 +11,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../Src/CMakeLists.txt"
   "../Src/GDT/CMakeLists.txt"
   "../Src/Paging/CMakeLists.txt"
+  "CMakeFiles/3.22.2/CMakeASM_NASMCompiler.cmake"
   "CMakeFiles/3.22.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.2/CMakeSystem.cmake"
+  "/usr/share/cmake/Modules/CMakeASMInformation.cmake"
+  "/usr/share/cmake/Modules/CMakeASM_NASMInformation.cmake"
   "/usr/share/cmake/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
   "/usr/share/cmake/Modules/CMakeGenericSystem.cmake"
@@ -57,4 +60,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "Src/Paging/CMakeFiles/PageTableManager.dir/DependInfo.cmake"
   "Src/Paging/CMakeFiles/Paging.dir/DependInfo.cmake"
   "Src/GDT/CMakeFiles/GDT.dir/DependInfo.cmake"
+  "Src/GDT/CMakeFiles/gdt.dir/DependInfo.cmake"
   )

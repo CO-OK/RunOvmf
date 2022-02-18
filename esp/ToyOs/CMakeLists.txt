@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
-project(Kernel.elf LANGUAGES C)
+project(Kernel.elf LANGUAGES C ASM_NASM)
 
 # 设置编译器
-SET(CMAKE_C_COMPILER "/usr/bin/gcc")
+SET(CMAKE_C_COMPILER "/usr/bin/clang")
 # 编译器选项 不能用-m32
 
 SET(CFLAGS "-fno-stack-protector -nostdlib  -ffreestanding ")
@@ -12,7 +12,7 @@ SET(CMAKE_C_FLAGS "${CFLAGS}")
 
 
 # 链接选项
-set(LDFLAGS " -e KernelStart -T ../Kernel.ld  font.o")
+set(LDFLAGS "  -e KernelStart -T ../Kernel.ld  font.o")
 set(CMAKE_EXE_LINKER_FLAGS    "${LDFLAGS}")
 
 
@@ -24,6 +24,7 @@ add_subdirectory(Src/GDT)
 
 
 add_executable(Kernel.elf )
+
 
 target_link_libraries(Kernel.elf PUBLIC Video)
 target_link_libraries(Kernel.elf PUBLIC Shell)
@@ -37,4 +38,6 @@ target_link_libraries(Kernel.elf PUBLIC PageMapIndexer)
 target_link_libraries(Kernel.elf PUBLIC PageTableManager)
 target_link_libraries(Kernel.elf PUBLIC Paging)
 target_link_libraries(Kernel.elf PUBLIC GDT)
+target_link_libraries(Kernel.elf PUBLIC gdt)
+
 

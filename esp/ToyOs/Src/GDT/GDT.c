@@ -1,8 +1,6 @@
 #include<GDT.h>
 
-__attribute__((aligned(0x1000)))
-
-GDT DefaultGDT ={
+__attribute__((aligned(0x1000)))GDT DefaultGDT ={
     /*null*/
     {0,0,0,0x00,0x00,0},//
     /*内核代码*/

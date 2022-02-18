@@ -4,17 +4,17 @@
 //https://wiki.osdev.org/Global_Descriptor_Table
 
 /*GDTDescriptor 即 GDTR*/
-typedef struct{
+typedef struct __attribute__((packed)){
     /*The size of the table in bytes subtracted by 1*/
     uint16_t Size;
     /* The linear address of the GDT (not the physical address, paging applies). */
     uint64_t Offset;
 
-}GDTDescriptor __attribute__((packed));
+}GDTDescriptor ;
 typedef GDTDescriptor GDTR;
 
 /*Segment Descriptor 即 GDTEntry*/
-typedef struct{
+typedef struct __attribute__((packed)){
     /*
         Base: A 32-bit value containing the linear address where the segment begins. 
         Limit: A 20-bit value, tells the maximum addressable unit, either in 1 byte units, or in 4KiB pages. 
@@ -25,13 +25,12 @@ typedef struct{
     uint16_t Base0;
     uint8_t Base1;
     uint8_t AccessByte;
-    uint16_t limit1AndFlags;
+    uint8_t limit1AndFlags;
     uint8_t Base2;
-}SegmentDescriptor __attribute__((packed));
+}SegmentDescriptor ;
 typedef SegmentDescriptor GDTEntry;
 
-typedef struct 
-{
+typedef struct __attribute__((packed)) __attribute__((aligned(0x1000))){
     /*第一个永远是null*/
     GDTEntry Null;
     /*内核代码*/
@@ -43,7 +42,9 @@ typedef struct
     GDTEntry UserCode;
     GDTEntry UserData;
 
-}GDT __attribute__((packed)) __attribute__((aligned(0x1000)));
+}GDT ;
 
 /*在GDT.c中声明*/
 extern GDT DefaultGDT;
+/*in gdt.asm*/
+extern void LoadGDT(GDTR* GDTR);

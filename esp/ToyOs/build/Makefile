@@ -272,6 +272,19 @@ GDT/fast:
 	$(MAKE) $(MAKESILENT) -f Src/GDT/CMakeFiles/GDT.dir/build.make Src/GDT/CMakeFiles/GDT.dir/build
 .PHONY : GDT/fast
 
+#=============================================================================
+# Target rules for targets named gdt
+
+# Build rule for target.
+gdt: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gdt
+.PHONY : gdt
+
+# fast build rule for target.
+gdt/fast:
+	$(MAKE) $(MAKESILENT) -f Src/GDT/CMakeFiles/gdt.dir/build.make Src/GDT/CMakeFiles/gdt.dir/build
+.PHONY : gdt/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -292,6 +305,7 @@ help:
 	@echo "... Paging"
 	@echo "... Shell"
 	@echo "... Video"
+	@echo "... gdt"
 .PHONY : help
 
 
