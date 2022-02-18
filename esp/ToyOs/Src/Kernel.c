@@ -4,6 +4,7 @@
 #include<Assert.h>
 #include<VideoInit.h>
 #include<GDT.h>
+#include<Interrupts.h>
 FILENUM(1);
 //extern PageFrameAllocator Allocator;
 /*内核起始*/
@@ -22,15 +23,15 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
    
     CharInit();
     
-    
+    InitGDT();
     MemoryInit(&BootConfig->MemoryMap);
     //printf("%x\n",BootConfig->VideoConfig.FrameBufferBase);
     PagingInit(BootConfig);
     
-    GDTDescriptor gdtDescriptor;
-    gdtDescriptor.Size = sizeof(GDT) - 1;
-    gdtDescriptor.Offset = (uint64_t)&DefaultGDT;
-    LoadGDT(&gdtDescriptor);
+    InitInterrupts();
+
+     int* test = (int*)0x80000000000;
+    *test = 2;
     
     printf("done\n");
     while(1){}

@@ -10,6 +10,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../CMakeLists.txt"
   "../Src/CMakeLists.txt"
   "../Src/GDT/CMakeLists.txt"
+  "../Src/Interrupts/CMakeLists.txt"
   "../Src/Paging/CMakeLists.txt"
   "CMakeFiles/3.22.2/CMakeASM_NASMCompiler.cmake"
   "CMakeFiles/3.22.2/CMakeCCompiler.cmake"
@@ -44,6 +45,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "Src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Src/Paging/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Src/GDT/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Src/Interrupts/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -61,4 +63,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "Src/Paging/CMakeFiles/Paging.dir/DependInfo.cmake"
   "Src/GDT/CMakeFiles/GDT.dir/DependInfo.cmake"
   "Src/GDT/CMakeFiles/gdt.dir/DependInfo.cmake"
+  "Src/Interrupts/CMakeFiles/Interrupts.dir/DependInfo.cmake"
+  "Src/Interrupts/CMakeFiles/InterruptHandler.dir/DependInfo.cmake"
   )

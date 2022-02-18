@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 project(Kernel.elf LANGUAGES C ASM_NASM)
 
 # 设置编译器
-SET(CMAKE_C_COMPILER "/usr/bin/clang")
+SET(CMAKE_C_COMPILER "/usr/bin/gcc")
 # 编译器选项 不能用-m32
 
 SET(CFLAGS "-fno-stack-protector -nostdlib  -ffreestanding ")
@@ -21,6 +21,7 @@ add_subdirectory(Src)
 
 add_subdirectory(Src/Paging)
 add_subdirectory(Src/GDT)
+add_subdirectory(Src/Interrupts)
 
 
 add_executable(Kernel.elf )
@@ -39,5 +40,7 @@ target_link_libraries(Kernel.elf PUBLIC PageTableManager)
 target_link_libraries(Kernel.elf PUBLIC Paging)
 target_link_libraries(Kernel.elf PUBLIC GDT)
 target_link_libraries(Kernel.elf PUBLIC gdt)
+target_link_libraries(Kernel.elf PUBLIC Interrupts)
+target_link_libraries(Kernel.elf PUBLIC InterruptHandler)
 
 

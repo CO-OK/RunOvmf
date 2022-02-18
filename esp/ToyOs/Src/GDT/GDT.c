@@ -38,3 +38,10 @@ __attribute__((aligned(0x1000)))GDT DefaultGDT ={
     },
 
 };
+
+void InitGDT(){
+    GDTDescriptor gdtDescriptor;
+    gdtDescriptor.Size = sizeof(GDT) - 1;
+    gdtDescriptor.Offset = (uint64_t)&DefaultGDT;
+    LoadGDT(&gdtDescriptor);
+}

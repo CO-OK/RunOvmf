@@ -48,3 +48,5 @@ typedef struct __attribute__((packed)) __attribute__((aligned(0x1000))){
 extern GDT DefaultGDT;
 /*in gdt.asm*/
 extern void LoadGDT(GDTR* GDTR);
+
+void InitGDT();

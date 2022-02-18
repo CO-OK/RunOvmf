@@ -285,6 +285,32 @@ gdt/fast:
 	$(MAKE) $(MAKESILENT) -f Src/GDT/CMakeFiles/gdt.dir/build.make Src/GDT/CMakeFiles/gdt.dir/build
 .PHONY : gdt/fast
 
+#=============================================================================
+# Target rules for targets named Interrupts
+
+# Build rule for target.
+Interrupts: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Interrupts
+.PHONY : Interrupts
+
+# fast build rule for target.
+Interrupts/fast:
+	$(MAKE) $(MAKESILENT) -f Src/Interrupts/CMakeFiles/Interrupts.dir/build.make Src/Interrupts/CMakeFiles/Interrupts.dir/build
+.PHONY : Interrupts/fast
+
+#=============================================================================
+# Target rules for targets named InterruptHandler
+
+# Build rule for target.
+InterruptHandler: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 InterruptHandler
+.PHONY : InterruptHandler
+
+# fast build rule for target.
+InterruptHandler/fast:
+	$(MAKE) $(MAKESILENT) -f Src/Interrupts/CMakeFiles/InterruptHandler.dir/build.make Src/Interrupts/CMakeFiles/InterruptHandler.dir/build
+.PHONY : InterruptHandler/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -296,6 +322,8 @@ help:
 	@echo "... Assert"
 	@echo "... Char"
 	@echo "... GDT"
+	@echo "... InterruptHandler"
+	@echo "... Interrupts"
 	@echo "... Kernel"
 	@echo "... Kernel.elf"
 	@echo "... Memory32"
