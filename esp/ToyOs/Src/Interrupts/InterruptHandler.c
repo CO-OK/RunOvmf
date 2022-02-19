@@ -1,7 +1,8 @@
 #include<Interrupts.h>
-
+#include<Panic.h>
 
 __attribute__((interrupt)) void PageFault_Handler(interrupt_frame* frame){
-    printf("Page Fault detected\n");
+    Panic("Page fault detected\n");
+    
     while(true);
 }

@@ -208,6 +208,19 @@ Assert/fast:
 .PHONY : Assert/fast
 
 #=============================================================================
+# Target rules for targets named Panic
+
+# Build rule for target.
+Panic: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Panic
+.PHONY : Panic
+
+# fast build rule for target.
+Panic/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Panic.dir/build.make Src/CMakeFiles/Panic.dir/build
+.PHONY : Panic/fast
+
+#=============================================================================
 # Target rules for targets named PageFrameAllocator
 
 # Build rule for target.
@@ -331,6 +344,7 @@ help:
 	@echo "... PageMapIndexer"
 	@echo "... PageTableManager"
 	@echo "... Paging"
+	@echo "... Panic"
 	@echo "... Shell"
 	@echo "... Video"
 	@echo "... gdt"

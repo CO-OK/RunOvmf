@@ -38,7 +38,8 @@ int DrawPixel(PIXEL Pixel)
 {
     UINT32 *Position = VideoStart
                        + (Pixel.Y - 1) * VideoConfig->PixelsPerScanLine
-                       + Pixel.X;   
+                       + Pixel.X;  
+    //printf("draw %x\n",(uint32_t)Position); 
     *Position = Pixel.Color;
      return 0;
 }
@@ -63,7 +64,18 @@ int DrawBlock(BLOCK Block)
             Pixel.X = j;
             Pixel.Y = i;
             DrawPixel(Pixel);
+            
         }
     }
     return 0;
+}
+
+
+void ClearScreen(uint32_t color){
+    
+    uint64_t ptr = (uint64_t)VideoConfig->FrameBufferBase;
+    for(uint64_t i=0;i<VideoConfig->FrameBufferSize>>2;i++){
+        *((uint64_t*)(ptr+i*4))=color;
+    }
+   
 }

@@ -30,6 +30,11 @@ add_library(Assert
     Assert.c
 )
 
+add_library(Panic
+    OBJECT
+    Panic.c
+)
+
 target_include_directories(Video
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
@@ -55,3 +60,9 @@ target_include_directories(Assert
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
                           )
+
+target_include_directories(Panic
+                            PUBLIC
+                            ${CMAKE_SOURCE_DIR}/Include
+                          )
+

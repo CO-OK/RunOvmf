@@ -4,8 +4,7 @@
 #include<Memory32.h>
 #include<PageTableManager.h>
 #include<PageFrameAllocator.h>
-typedef struct
-{
+typedef struct __attribute__((packed)){
     EFI_PHYSICAL_ADDRESS       FrameBufferBase;
     UINT64                      FrameBufferSize;
     UINT32                     HorizontalResolution;

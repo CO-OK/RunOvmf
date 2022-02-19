@@ -24,13 +24,13 @@ typedef UINT64  uint64_t;
 
 
 #pragma pack(1)
-typedef struct
-{
-  UINT8 Blue;
-  UINT8 Green;
-  UINT8 Red;
-  UINT8 Reserved;
-} BGR_PIXEL;
+// typedef struct
+// {
+//   UINT8 Blue;
+//   UINT8 Green;
+//   UINT8 Red;
+//   UINT8 Reserved;
+// } BGR_PIXEL;
 
 
 

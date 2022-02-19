@@ -13,6 +13,9 @@ extern int Col;
 extern int CurrentRow;
 extern int CurrentCol;
 
+/*前景色和背景色*/
+uint32_t BackColor;
+uint32_t ForeColor;
 
 extern UINT32 *VideoStart;
 
@@ -75,7 +78,7 @@ void putchar(unsigned short c){
         break;
     
     default:
-        _putchar(VideoStart,c,CurrentCol,CurrentRow,White,Black);
+        _putchar(VideoStart,c,CurrentCol,CurrentRow,ForeColor,BackColor);
         VideoBuffer[CurrentRow][CurrentCol]=c;
         CurrentCol++;
         if(CurrentCol==Col){
@@ -98,11 +101,11 @@ void RollBack(){
   }
   for(int i=0;i<Row-1;i++){
       for(int j=0;j<Col;j++){
-          _putchar(VideoStart,VideoBuffer[i][j],j,i,White,Black);
+          _putchar(VideoStart,VideoBuffer[i][j],j,i,ForeColor,BackColor);
       }
   }
   for(int i=0;i<Col;i++){
-      _putchar(VideoStart,' ',i,Row-1,Black,Black);
+      _putchar(VideoStart,' ',i,Row-1,ForeColor,BackColor);
   }
   
 }
@@ -284,6 +287,8 @@ void CharInit(){
   }
   Row=28;
   Col=84;
+  BackColor=Black;
+  ForeColor=White;
 }
 
 void ChangeRow(int row){
@@ -291,4 +296,11 @@ void ChangeRow(int row){
 }
 void ChangeCol(int col){
     CurrentCol=col;
+}
+
+void SetBackColor(uint32_t color){
+    BackColor=color;
+}
+void SetForeColor(uint32_t color){
+    ForeColor=color;
 }

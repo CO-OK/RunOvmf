@@ -20,9 +20,10 @@ void PagingInit(BOOT_CONFIG *BootConfig){
     //LockPages((void*)FrameBase,FrameSize/4096 + 1);
 
     /*映射显存*/
-    printf("%x\n",BootConfig->VideoConfig.FrameBufferBase);
+    //printf("%x\n",BootConfig->VideoConfig.FrameBufferBase);
     uint64_t FrameBase = BootConfig->VideoConfig.FrameBufferBase;
-    uint64_t FrameSize = BootConfig->VideoConfig.FrameBufferSize;
+    uint64_t FrameSize = BootConfig->VideoConfig.FrameBufferSize+4096;
+    //Allocator.pageCtrlTable.LockPages((void*)FrameBase, FrameSize/ 0x1000 + 1);
     for(uint64_t i=FrameBase;i<FrameBase+FrameSize;i+=4096 ){
         MapMemory((void*)i,(void*)i,&pageTableManager);
     }

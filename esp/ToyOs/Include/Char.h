@@ -45,3 +45,7 @@ void printf(const char *format, ...);
 /*改变光标所在位置*/
 void ChangeRow(int row);
 void ChangeCol(int col);
+
+/*设置前景色和背景色*/
+void SetBackColor(uint32_t color);
+void SetForeColor(uint32_t color);

@@ -42,5 +42,6 @@ target_link_libraries(Kernel.elf PUBLIC GDT)
 target_link_libraries(Kernel.elf PUBLIC gdt)
 target_link_libraries(Kernel.elf PUBLIC Interrupts)
 target_link_libraries(Kernel.elf PUBLIC InterruptHandler)
+target_link_libraries(Kernel.elf PUBLIC Panic)
 
 

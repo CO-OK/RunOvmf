@@ -19,9 +19,10 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
 {  
     
     UINT64 PassBack = 0;
+    CharInit();
     VideoInitial(BootConfig);
    
-    CharInit();
+    
     
     InitGDT();
     MemoryInit(&BootConfig->MemoryMap);
@@ -29,9 +30,9 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     PagingInit(BootConfig);
     
     InitInterrupts();
-
-     int* test = (int*)0x80000000000;
-    *test = 2;
+    
+    int *test=0x80000000000;
+    *test=9;
     
     printf("done\n");
     while(1){}

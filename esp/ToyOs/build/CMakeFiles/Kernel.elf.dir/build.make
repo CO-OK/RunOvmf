@@ -87,7 +87,8 @@ Kernel_elf_EXTERNAL_OBJECTS = \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/GDT/CMakeFiles/GDT.dir/GDT.c.o" \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/GDT/CMakeFiles/gdt.dir/gdt.asm.o" \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Interrupts/CMakeFiles/Interrupts.dir/Interrupts.c.o" \
-"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Interrupts/CMakeFiles/InterruptHandler.dir/InterruptHandler.c.o"
+"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Interrupts/CMakeFiles/InterruptHandler.dir/InterruptHandler.c.o" \
+"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Panic.dir/Panic.c.o"
 
 Kernel.elf: Src/CMakeFiles/Video.dir/Video.c.o
 Kernel.elf: Src/CMakeFiles/Shell.dir/Shell.c.o
@@ -103,6 +104,7 @@ Kernel.elf: Src/GDT/CMakeFiles/GDT.dir/GDT.c.o
 Kernel.elf: Src/GDT/CMakeFiles/gdt.dir/gdt.asm.o
 Kernel.elf: Src/Interrupts/CMakeFiles/Interrupts.dir/Interrupts.c.o
 Kernel.elf: Src/Interrupts/CMakeFiles/InterruptHandler.dir/InterruptHandler.c.o
+Kernel.elf: Src/CMakeFiles/Panic.dir/Panic.c.o
 Kernel.elf: CMakeFiles/Kernel.elf.dir/build.make
 Kernel.elf: CMakeFiles/Kernel.elf.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking C executable Kernel.elf"

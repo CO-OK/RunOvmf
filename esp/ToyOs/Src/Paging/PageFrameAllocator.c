@@ -100,7 +100,7 @@ void FreePage(void*pageAddress){
     }
     else{
         
-        ASSERT(7==8);
+        //ASSERT(7==8);
     }
     
 }
@@ -120,8 +120,8 @@ void LockPage(void*pageAddress){
         UsedMemory+=4096;
     }
     else{
-        printf("index=%x\n",index);
-        ASSERT(7==8);
+        //printf("index=%x\n",index);
+        //ASSERT(7==8);
         
     }
     
@@ -142,7 +142,7 @@ void UnReservePage(void*pageAddress){
         if(pageBitMapIndex>index)pageBitMapIndex=index;
     }
     else{
-        ASSERT(7==8);
+        //ASSERT(7==8);
     }
     
 }
