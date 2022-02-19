@@ -35,6 +35,11 @@ add_library(Panic
     Panic.c
 )
 
+add_library(IO
+    OBJECT
+    IO.c
+)
+
 target_include_directories(Video
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
@@ -66,3 +71,7 @@ target_include_directories(Panic
                             ${CMAKE_SOURCE_DIR}/Include
                           )
 
+target_include_directories(IO
+                            PUBLIC
+                            ${CMAKE_SOURCE_DIR}/Include
+                          )

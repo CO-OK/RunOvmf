@@ -31,8 +31,8 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     
     InitInterrupts();
     
-    int *test=0x80000000000;
-    *test=9;
+    
+    
     
     printf("done\n");
     while(1){}

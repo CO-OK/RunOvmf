@@ -221,6 +221,19 @@ Panic/fast:
 .PHONY : Panic/fast
 
 #=============================================================================
+# Target rules for targets named IO
+
+# Build rule for target.
+IO: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 IO
+.PHONY : IO
+
+# fast build rule for target.
+IO/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/IO.dir/build.make Src/CMakeFiles/IO.dir/build
+.PHONY : IO/fast
+
+#=============================================================================
 # Target rules for targets named PageFrameAllocator
 
 # Build rule for target.
@@ -335,6 +348,7 @@ help:
 	@echo "... Assert"
 	@echo "... Char"
 	@echo "... GDT"
+	@echo "... IO"
 	@echo "... InterruptHandler"
 	@echo "... Interrupts"
 	@echo "... Kernel"
