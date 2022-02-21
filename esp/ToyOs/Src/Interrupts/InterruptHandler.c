@@ -20,9 +20,10 @@ __attribute__((interrupt)) void GeneralProtectionFault_Handler(interrupt_frame* 
 
 __attribute__((interrupt)) void Mouse_Handler(interrupt_frame* frame){
     
-    uint8_t scancode=inb(0x60);//ps2 controller data port
+
+    HandlePS2Mouse(inb(0x60));
     PIC_EndSlave();
-    printf("m");
+    // printf("m");
     //while(true);
 }
 

@@ -97,10 +97,12 @@ void InitInterrupts(){
     outb(PIC1_DATA,0b11111101);//https://wiki.osdev.org/Interrupts 为什么要umask 第二个
     outb(PIC2_DATA,0b11111111);
     /*enable maskble interrupts*/
-    asm("sti");//IF置1
+   
     InitPS2Mouse();
     outb(PIC1_DATA,0b11111001);//bit 2 置0容许2级PIC向Master发送中断
     outb(PIC2_DATA,0b11101111);//bit 4 让鼠标发送的中断不被屏蔽
+
+    asm("sti");//IF置1
 }
 
 /*重新初始化PIC （Programmable Interrupt Controller） 以免 外界中断与CPU内的中断的映射结果相同*/

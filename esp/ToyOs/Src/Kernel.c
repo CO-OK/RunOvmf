@@ -33,7 +33,9 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     InitInterrupts();
     
     
-    
+    while(1){
+        ProcessMousePacked();
+    }
     
     //printf("done\n");
     while(1){}
