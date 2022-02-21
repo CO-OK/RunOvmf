@@ -71,4 +71,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "Src/Interrupts/CMakeFiles/InterruptHandler.dir/DependInfo.cmake"
   "Src/UserInputs/CMakeFiles/KbScanCodeTranslation.dir/DependInfo.cmake"
   "Src/UserInputs/CMakeFiles/KeyBoard.dir/DependInfo.cmake"
+  "Src/UserInputs/CMakeFiles/Mouse.dir/DependInfo.cmake"
   )

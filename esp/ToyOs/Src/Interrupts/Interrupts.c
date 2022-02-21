@@ -80,6 +80,9 @@ void InitInterrupts(){
     // int_KeyBoard->type_attributes = IDT_TA_InterruptGate;
     // int_KeyBoard->selector = 0x08;
     
+    /*Mouse*/
+    SetIDTGate(Mouse_Handler,0x2c,IDT_TA_InterruptGate,0x08);
+    
     /*加载IDT*/
     asm ("lidt %0" : : "m" (idtr));
 

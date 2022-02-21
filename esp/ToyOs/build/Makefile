@@ -363,6 +363,19 @@ KeyBoard/fast:
 	$(MAKE) $(MAKESILENT) -f Src/UserInputs/CMakeFiles/KeyBoard.dir/build.make Src/UserInputs/CMakeFiles/KeyBoard.dir/build
 .PHONY : KeyBoard/fast
 
+#=============================================================================
+# Target rules for targets named Mouse
+
+# Build rule for target.
+Mouse: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Mouse
+.PHONY : Mouse
+
+# fast build rule for target.
+Mouse/fast:
+	$(MAKE) $(MAKESILENT) -f Src/UserInputs/CMakeFiles/Mouse.dir/build.make Src/UserInputs/CMakeFiles/Mouse.dir/build
+.PHONY : Mouse/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -382,6 +395,7 @@ help:
 	@echo "... Kernel.elf"
 	@echo "... KeyBoard"
 	@echo "... Memory32"
+	@echo "... Mouse"
 	@echo "... PageFrameAllocator"
 	@echo "... PageMapIndexer"
 	@echo "... PageTableManager"
