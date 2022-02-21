@@ -4,6 +4,7 @@
 #include<Bool.h>
 #include<PageFrameAllocator.h>
 #include<KeyBoard.h>
+#include<Mouse.h>
 // https://wiki.osdev.org/Interrupt 
 
 /*InterruptDescriptor(Gate)的类型以及属性*/

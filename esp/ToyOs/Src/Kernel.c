@@ -5,7 +5,7 @@
 #include<VideoInit.h>
 #include<GDT.h>
 #include<Interrupts.h>
-#include<Mouse.h>
+
 FILENUM(1);
 //extern PageFrameAllocator Allocator;
 /*内核起始*/
@@ -32,12 +32,10 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     
     InitInterrupts();
     
-    outb(PIC1_DATA,0b11111001);//bit 2 置0容许2级PIC向Master发送中断
-    outb(PIC2_DATA,0b11101111);//bit 4 让鼠标发送的中断不被屏蔽
-    InitPS2Mouse();
     
     
-    printf("done\n");
+    
+    //printf("done\n");
     while(1){}
     return PassBack;
 }
