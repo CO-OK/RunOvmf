@@ -78,6 +78,8 @@ typedef struct __attribute__((packed)){
     uint16_t ss;
 }interrupt_frame;
 
+/*设置中断门*/
+void SetIDTGate(void* handlerFuncPointer,uint8_t entryOffset,uint8_t type_attr ,uint8_t slector);
 /*https://wiki.osdev.org/Exceptions*/
 __attribute__((interrupt)) void PageFault_Handler(interrupt_frame* frame);
 __attribute__((interrupt)) void DoubleFault_Handler(interrupt_frame* frame);

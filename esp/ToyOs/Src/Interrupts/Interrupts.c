@@ -16,39 +16,69 @@ uint64_t GetOffset(InterruptDescriptor* desc){
 }
 
 IDTR idtr;
+
+/*设置中断门*/
+void SetIDTGate(void* handlerFuncPointer,uint8_t entryOffset,uint8_t type_attr ,uint8_t slector){
+    /*
+        handlerFuncPointer 中断处理函数入口
+        entryOffset        中断门描述符在IDT中的偏移
+        type_attr          中断属性
+        slector            中断所要用到的代码段选择子
+
+        例子：
+        
+        InterruptDescriptor* int_PageFault = (InterruptDescriptor*)(idtr.Offset + 0xE * sizeof(InterruptDescriptor));//0xE是page fault的编号
+    
+        SetOffest((uint64_t)PageFault_Handler,int_PageFault);
+        
+        int_PageFault->type_attributes = IDT_TA_InterruptGate;
+        
+        int_PageFault->selector = 0x08;
+    */
+
+    /*得到们描述符基址*/
+    InterruptDescriptor* descriptorEntry = (InterruptDescriptor*)(idtr.Offset + entryOffset * sizeof(InterruptDescriptor));
+    /* 设置中断门描述符的函数入口*/
+    SetOffest((uint64_t)handlerFuncPointer,descriptorEntry);
+    /*设置 excepion 属性*/
+    descriptorEntry->type_attributes = type_attr;
+    /*中断要用到的代码段*/
+    descriptorEntry->selector = slector;
+
+}
+
+
 void InitInterrupts(){
     idtr.Limit = 0x0FFF;
     idtr.Offset = (uint64_t)Allocator.pageCtrlTable.RequestPage();
     /*
         https://wiki.osdev.org/Exceptions
     */
-    /*page fault exception 入口*/
-    InterruptDescriptor* int_PageFault = (InterruptDescriptor*)(idtr.Offset + 0xE * sizeof(InterruptDescriptor));//0xE是page fault的编号
-    /*page fault 函数入口*/
-    SetOffest((uint64_t)PageFault_Handler,int_PageFault);
-    /*设置 excepion 属性*/
-    int_PageFault->type_attributes = IDT_TA_InterruptGate;
-    /*Kernel Code segment*/
-    int_PageFault->selector = 0x08;
+    
 
     /*其他类似*/
+    /*Page Fault*/
+    SetIDTGate(PageFault_Handler,0xE,IDT_TA_InterruptGate,0x08);
     /*Double Fault*/
-    InterruptDescriptor* int_DoubleFault = (InterruptDescriptor*)(idtr.Offset + 0x8 * sizeof(InterruptDescriptor));
-    SetOffest((uint64_t)DoubleFault_Handler,int_DoubleFault);
-    int_DoubleFault->type_attributes = IDT_TA_InterruptGate;
-    int_DoubleFault->selector = 0x08;
+    SetIDTGate(DoubleFault_Handler,0x8,IDT_TA_InterruptGate,0x08);
+    // InterruptDescriptor* int_DoubleFault = (InterruptDescriptor*)(idtr.Offset + 0x8 * sizeof(InterruptDescriptor));
+    // SetOffest((uint64_t)DoubleFault_Handler,int_DoubleFault);
+    // int_DoubleFault->type_attributes = IDT_TA_InterruptGate;
+    // int_DoubleFault->selector = 0x08;
 
     /*General protection fault*/ 
-    InterruptDescriptor* int_GeneralProtectionFault = (InterruptDescriptor*)(idtr.Offset + 0xD * sizeof(InterruptDescriptor));
-    SetOffest((uint64_t)GeneralProtectionFault_Handler,int_GeneralProtectionFault);
-    int_GeneralProtectionFault->type_attributes = IDT_TA_InterruptGate;
-    int_GeneralProtectionFault->selector = 0x08;
+    SetIDTGate(GeneralProtectionFault_Handler,0xD,IDT_TA_InterruptGate,0x08);
+    // InterruptDescriptor* int_GeneralProtectionFault = (InterruptDescriptor*)(idtr.Offset + 0xD * sizeof(InterruptDescriptor));
+    // SetOffest((uint64_t)GeneralProtectionFault_Handler,int_GeneralProtectionFault);
+    // int_GeneralProtectionFault->type_attributes = IDT_TA_InterruptGate;
+    // int_GeneralProtectionFault->selector = 0x08;
 
     /*KeyBoard*/
-    InterruptDescriptor* int_KeyBoard = (InterruptDescriptor*)(idtr.Offset + 0x21 * sizeof(InterruptDescriptor));//0x20是PIC1
-    SetOffest((uint64_t)KeyBoard_Handler,int_KeyBoard);
-    int_KeyBoard->type_attributes = IDT_TA_InterruptGate;
-    int_KeyBoard->selector = 0x08;
+    SetIDTGate(KeyBoard_Handler,0x21,IDT_TA_InterruptGate,0x08);
+    // InterruptDescriptor* int_KeyBoard = (InterruptDescriptor*)(idtr.Offset + 0x21 * sizeof(InterruptDescriptor));//0x20是PIC1
+    // SetOffest((uint64_t)KeyBoard_Handler,int_KeyBoard);
+    // int_KeyBoard->type_attributes = IDT_TA_InterruptGate;
+    // int_KeyBoard->selector = 0x08;
     
     /*加载IDT*/
     asm ("lidt %0" : : "m" (idtr));
