@@ -78,14 +78,16 @@ void putchar(unsigned short c){
         break;
     
     default:
-        _putchar(VideoStart,c,CurrentCol,CurrentRow,ForeColor,BackColor);
-        VideoBuffer[CurrentRow][CurrentCol]=c;
-        CurrentCol++;
         if(CurrentCol==Col){
             /*换行*/
             CurrentCol=0;
             CurrentRow++;
         }
+        VideoBuffer[CurrentRow][CurrentCol]=c;
+        _putchar(VideoStart,c,CurrentCol,CurrentRow,ForeColor,BackColor);
+        
+        CurrentCol++;
+        
         break;
     }
     
@@ -95,8 +97,8 @@ void putchar(unsigned short c){
 void RollBack(){
    /*一行字符所占像素总数*/
   for(int i=1;i<Row;i++){
-      for(int j=0;j<Col;j++){
-          VideoBuffer[i-1][j]=VideoBuffer[i][j];
+      for(int j=0;j<Col;j++){ 
+        VideoBuffer[i-1][j]=VideoBuffer[i][j];
       }
   }
   for(int i=0;i<Row-1;i++){
@@ -105,6 +107,7 @@ void RollBack(){
       }
   }
   for(int i=0;i<Col;i++){
+      VideoBuffer[Row-1][i]=' ';
       _putchar(VideoStart,' ',i,Row-1,ForeColor,BackColor);
   }
   
@@ -284,7 +287,7 @@ void CharInit(){
       for(int j=0;j<Col;j++){
           VideoBuffer[i][j]=' ';
       }
-  }
+    }
   Row=28;
   Col=84;
   BackColor=Black;
@@ -292,6 +295,12 @@ void CharInit(){
 }
 
 void ChangeRow(int row){
+    if(row==Row){
+        RollBack();
+        CurrentRow=row-1;
+        CurrentCol=0;
+        return ;
+    }
     CurrentRow=row;
 }
 void ChangeCol(int col){
@@ -303,4 +312,17 @@ void SetBackColor(uint32_t color){
 }
 void SetForeColor(uint32_t color){
     ForeColor=color;
+}
+
+void NextLine(){
+    ChangeRow(CurrentRow+1);
+    ChangeCol(0);
+}
+
+void Backspace(){
+    if(CurrentCol!=0)
+        ChangeCol(CurrentCol-1);
+    putchar(' ');
+    if(CurrentCol!=0)
+        ChangeCol(CurrentCol-1);
 }

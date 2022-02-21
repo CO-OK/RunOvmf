@@ -25,3 +25,7 @@
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Interrupts/CMakeFiles/InterruptHandler.dir
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Interrupts/CMakeFiles/edit_cache.dir
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Interrupts/CMakeFiles/rebuild_cache.dir
+/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/UserInputs/CMakeFiles/KbScanCodeTranslation.dir
+/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/UserInputs/CMakeFiles/KeyBoard.dir
+/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/UserInputs/CMakeFiles/edit_cache.dir
+/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/UserInputs/CMakeFiles/rebuild_cache.dir

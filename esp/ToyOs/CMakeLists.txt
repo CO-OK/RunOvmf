@@ -5,7 +5,7 @@ project(Kernel.elf LANGUAGES C ASM_NASM)
 SET(CMAKE_C_COMPILER "/usr/bin/gcc")
 # 编译器选项 不能用-m32
 
-SET(CFLAGS "-fno-stack-protector -nostdlib  -ffreestanding ")
+SET(CFLAGS "-fno-stack-protector -nostdlib  -ffreestanding -mno-red-zone")
 SET(CMAKE_C_FLAGS "${CFLAGS}")
 
 #
@@ -22,6 +22,8 @@ add_subdirectory(Src)
 add_subdirectory(Src/Paging)
 add_subdirectory(Src/GDT)
 add_subdirectory(Src/Interrupts)
+add_subdirectory(Src/UserInputs)
+
 
 
 add_executable(Kernel.elf )
@@ -44,5 +46,8 @@ target_link_libraries(Kernel.elf PUBLIC Interrupts)
 target_link_libraries(Kernel.elf PUBLIC InterruptHandler)
 target_link_libraries(Kernel.elf PUBLIC Panic)
 target_link_libraries(Kernel.elf PUBLIC IO)
+
+target_link_libraries(Kernel.elf PUBLIC KbScanCodeTranslation)
+target_link_libraries(Kernel.elf PUBLIC KeyBoard)
 
 

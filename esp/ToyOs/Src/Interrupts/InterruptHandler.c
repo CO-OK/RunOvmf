@@ -19,11 +19,12 @@ __attribute__((interrupt)) void GeneralProtectionFault_Handler(interrupt_frame* 
 }
 
 __attribute__((interrupt)) void KeyBoard_Handler(interrupt_frame* frame){
-    printf("KeyBoard pressed\n");
+    
     /*
         因为键盘和ps2 有关 参见 https://wiki.osdev.org/%228042%22_PS/2_Controller 
     */
    /*读取扫描码*/
     uint8_t scancode=inb(0x60);//ps2 controller data port
+    HandleKeyboard(scancode);
     PIC_EndMaster();
 }

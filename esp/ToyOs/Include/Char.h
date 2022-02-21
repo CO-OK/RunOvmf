@@ -49,3 +49,10 @@ void ChangeCol(int col);
 /*设置前景色和背景色*/
 void SetBackColor(uint32_t color);
 void SetForeColor(uint32_t color);
+
+/*下一行开头*/
+void NextLine();
+
+/*退格*/
+
+void Backspace();

@@ -337,6 +337,32 @@ InterruptHandler/fast:
 	$(MAKE) $(MAKESILENT) -f Src/Interrupts/CMakeFiles/InterruptHandler.dir/build.make Src/Interrupts/CMakeFiles/InterruptHandler.dir/build
 .PHONY : InterruptHandler/fast
 
+#=============================================================================
+# Target rules for targets named KbScanCodeTranslation
+
+# Build rule for target.
+KbScanCodeTranslation: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 KbScanCodeTranslation
+.PHONY : KbScanCodeTranslation
+
+# fast build rule for target.
+KbScanCodeTranslation/fast:
+	$(MAKE) $(MAKESILENT) -f Src/UserInputs/CMakeFiles/KbScanCodeTranslation.dir/build.make Src/UserInputs/CMakeFiles/KbScanCodeTranslation.dir/build
+.PHONY : KbScanCodeTranslation/fast
+
+#=============================================================================
+# Target rules for targets named KeyBoard
+
+# Build rule for target.
+KeyBoard: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 KeyBoard
+.PHONY : KeyBoard
+
+# fast build rule for target.
+KeyBoard/fast:
+	$(MAKE) $(MAKESILENT) -f Src/UserInputs/CMakeFiles/KeyBoard.dir/build.make Src/UserInputs/CMakeFiles/KeyBoard.dir/build
+.PHONY : KeyBoard/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -351,8 +377,10 @@ help:
 	@echo "... IO"
 	@echo "... InterruptHandler"
 	@echo "... Interrupts"
+	@echo "... KbScanCodeTranslation"
 	@echo "... Kernel"
 	@echo "... Kernel.elf"
+	@echo "... KeyBoard"
 	@echo "... Memory32"
 	@echo "... PageFrameAllocator"
 	@echo "... PageMapIndexer"
