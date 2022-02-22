@@ -1,5 +1,25 @@
 #include<Mouse.h>
 
+uint8_t MousePointer[] = {
+    0b11111111, 0b11100000, 
+    0b11111111, 0b10000000, 
+    0b11111110, 0b00000000, 
+    0b11111100, 0b00000000, 
+    0b11111000, 0b00000000, 
+    0b11110000, 0b00000000, 
+    0b11100000, 0b00000000, 
+    0b11000000, 0b00000000, 
+    0b11000000, 0b00000000, 
+    0b10000000, 0b00000000, 
+    0b10000000, 0b00000000, 
+    0b00000000, 0b00000000, 
+    0b00000000, 0b00000000, 
+    0b00000000, 0b00000000, 
+    0b00000000, 0b00000000, 
+    0b00000000, 0b00000000, 
+};
+
+
 void MouseWaitUntilOutput(){
     /*
         这个函数的目的 bytes cannot be read from port 0x60 until bit 0 (value=1) of port 0x64 is set.
@@ -131,7 +151,9 @@ void HandlePS2Mouse(uint8_t byte){
     }
 }
 
-MousePoint MousePosition;
+POINT MousePosition;
+/*用来清楚之前的*/
+POINT MousePositionOld;
 void ProcessMousePacked(){
     /*包没有准备好就返回*/
     if(!PacketReady)return;
@@ -173,12 +195,34 @@ void ProcessMousePacked(){
 
     if(MousePosition.Y<0)MousePosition.Y=0;
     if(MousePosition.Y>VideoConfig->VerticalResolution)MousePosition.Y=VideoConfig->VerticalResolution-1;
-    // if(MousePosition.X<0)MousePosition.X=0;
-    // if(MousePosition.X>84)MousePosition.X=84-1;
 
-    // if(MousePosition.Y<0)MousePosition.Y=0;
-    // if(MousePosition.Y>28)MousePosition.Y=28-1;
-    printf("X=%dy=%d\n",MousePosition.X,MousePosition.Y);
+    ClearMouseCursor(MousePointer,MousePositionOld);
+    DrawOverlayMouseCursor(MousePointer,MousePosition,Red);
+
+    // if (MousePacket[0] & PS2Leftbutton){
+    //         GlobalRenderer->PutChar('a', MousePosition.X, MousePosition.Y);
+    //     }
+    //     if (MousePacket[0] & PS2Middlebutton){
+            
+    //     }
+    //     if (MousePacket[0] & PS2Rightbutton){
+    //         uint32_t colour = GlobalRenderer->Colour;
+    //         GlobalRenderer->Colour = 0x0000ff00;
+    //         GlobalRenderer->PutChar('a', MousePosition.X, MousePosition.Y);
+    //         GlobalRenderer->Colour = colour;
+    //     }
+    if((Packet[0]&PS2_LEFT_BTN)!=0){
+        _putchar(VideoConfig->FrameBufferBase,'b',MousePosition.X/17,MousePosition.Y/32,White,Black);
+    }
+    if((Packet[0]&PS2_MID_BTN)!=0){
+
+    }
+    if((Packet[0]&PS2_RIGHT_BTN)!=0){
+        _putchar(VideoConfig->FrameBufferBase,'b',MousePosition.X/17,MousePosition.Y/32,White,Black);
+    }
+
     PacketReady=false;
-    
+    MousePositionOld=MousePosition;
 } 
+
+

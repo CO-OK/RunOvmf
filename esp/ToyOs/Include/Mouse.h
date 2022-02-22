@@ -3,6 +3,7 @@
 #include<Bool.h>
 #include<Color.h>
 #include<BootConfig.h>
+#include<Video.h>
 //UINT32 *VideoStart;
 
 /*方便进行位操作*/
@@ -14,10 +15,10 @@
 #define PS2_RIGHT_BTN 0b00000010
 #define PS2_LEFT_BTN 0b00000001
 
-typedef struct{
-    uint32_t X;
-    uint32_t Y;
-}MousePoint;
+
+
+/*鼠标图标*/
+extern uint8_t MousePointer[];
 
 /*这个函数等待到可以向0x64端口输出数据*/
 void MouseWaitUntilOutput();

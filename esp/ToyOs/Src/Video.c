@@ -36,12 +36,13 @@ int VideoInitial(BOOT_CONFIG *BootConfig)
 
 int DrawPixel(PIXEL Pixel)
 {
-    UINT32 *Position = VideoStart
-                       + (Pixel.Y - 1) * VideoConfig->PixelsPerScanLine
-                       + Pixel.X;  
-    //printf("draw %x\n",(uint32_t)Position); 
-    *Position = Pixel.Color;
-     return 0;
+    // UINT32 *Position = VideoStart
+    //                    + (Pixel.Y - 1) * VideoConfig->PixelsPerScanLine
+    //                    + Pixel.X;  
+    // //printf("draw %x\n",(uint32_t)Position); 
+    // *Position = Pixel.Color;
+    *(uint32_t*)((uint64_t)VideoConfig->FrameBufferBase + (Pixel.X*4) + (Pixel.Y * VideoConfig->PixelsPerScanLine * 4)) = Pixel.Color;
+    return 0;
 }
 
 /*
@@ -78,4 +79,69 @@ void ClearScreen(uint32_t color){
         *((uint64_t*)(ptr+i*4))=color;
     }
    
+}
+
+uint32_t GetPixel(uint32_t X,uint32_t Y){
+    return *(uint32_t*)((uint64_t)VideoConfig->FrameBufferBase + (X*4) + (Y * VideoConfig->PixelsPerScanLine * 4));
+}
+
+/*存储未绘制鼠标前的屏幕信息*/
+MouseCursorBufferBack[16*16]={};
+/*存储绘制了鼠标之后的屏幕信息*/
+MouseCursorBufferNow[16*16]={};
+
+
+void DrawOverlayMouseCursor(uint8_t* mouseCursor, POINT position, uint32_t colour){
+    int xMax = 16;
+    int yMax = 16;
+    int differenceX = VideoConfig->HorizontalResolution - position.X;
+    int differenceY = VideoConfig->VerticalResolution - position.Y;
+    PIXEL pixel;
+    pixel.Color=colour;
+    
+    if (differenceX < 16) xMax = differenceX;
+    if (differenceY < 16) yMax = differenceY;
+
+    for (int y = 0; y < yMax; y++){
+        for (int x = 0; x < xMax; x++){
+            int bit = y * 16 + x;
+            int byte = bit / 8;
+            if ((mouseCursor[byte] & (0b10000000 >> (x % 8)))!=0)
+            {
+                pixel.X=position.X+x;
+                pixel.Y=position.Y+y;
+                MouseCursorBufferBack[16*y+x] = GetPixel(pixel.X,pixel.Y);
+                DrawPixel(pixel);
+                MouseCursorBufferNow[16*y+x] = pixel.Color;
+            }
+        }
+    }
+}
+
+
+void ClearMouseCursor(uint8_t* mouseCursor,POINT position){
+    int xMax = 16;
+    int yMax = 16;
+    int differenceX = VideoConfig->HorizontalResolution - position.X;
+    int differenceY = VideoConfig->VerticalResolution - position.Y;
+    PIXEL pixel;
+    
+    if (differenceX < 16) xMax = differenceX;
+    if (differenceY < 16) yMax = differenceY;
+
+    for (int y = 0; y < yMax; y++){
+        for (int x = 0; x < xMax; x++){
+            int bit = y * 16 + x;
+            int byte = bit / 8;
+            if ((mouseCursor[byte] & (0b10000000 >> (x % 8)))!=0)
+            {
+                pixel.X=position.X+x;
+                pixel.Y=position.Y+y;
+                if(GetPixel(pixel.X,pixel.Y)==MouseCursorBufferNow[x+16*y]){//不排除有其他应用已经修改了部分像素
+                    pixel.Color=MouseCursorBufferBack[x+16*y];
+                    DrawPixel(pixel);
+                }
+            }
+        }
+    }
 }

@@ -18,7 +18,7 @@ uint32_t BackColor;
 uint32_t ForeColor;
 
 extern UINT32 *VideoStart;
-
+extern UINT64 FrameBufferSize;
 
 unsigned char VideoBuffer[28][84]={};
 void _putchar(uint32_t fb,
@@ -50,9 +50,12 @@ void _putchar(uint32_t fb,
         /* save the starting position of the line */
         line=offs;
         mask=1<<(font->width-1);
+        uint32_t *ptr;
         /* display a row */
         for(x=0;x<font->width;x++){
-            *((ONEPIXEL*)(fb + line)) = *((unsigned int*)glyph) & mask ? fg : bg;
+            ptr=((ONEPIXEL*)(fb + line));
+            if((uint64_t)ptr<(uint64_t)(fb)+FrameBufferSize)
+                *ptr = *((unsigned int*)glyph) & mask ? fg : bg;
             /* adjust to the next pixel */
             mask >>= 1;
             line += sizeof(ONEPIXEL);

@@ -31,7 +31,7 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     PagingInit(BootConfig);
     
     InitInterrupts();
-    
+    printf("Kernel\n");
     
     while(1){
         ProcessMousePacked();
