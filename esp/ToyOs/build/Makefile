@@ -234,6 +234,19 @@ IO/fast:
 .PHONY : IO/fast
 
 #=============================================================================
+# Target rules for targets named Acpi
+
+# Build rule for target.
+Acpi: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Acpi
+.PHONY : Acpi
+
+# fast build rule for target.
+Acpi/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Acpi.dir/build.make Src/CMakeFiles/Acpi.dir/build
+.PHONY : Acpi/fast
+
+#=============================================================================
 # Target rules for targets named PageFrameAllocator
 
 # Build rule for target.
@@ -384,6 +397,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Acpi"
 	@echo "... Assert"
 	@echo "... Char"
 	@echo "... GDT"

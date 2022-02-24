@@ -198,7 +198,7 @@ void printf(const char *format, ...){
                 else if(*format=='u')
                     PrintDec(va_arg(arguments,UINT64));
                 else if(*format=='c')
-                    putchar(va_arg(arguments,char));
+                    putchar(va_arg(arguments,int));
                 else if(*format=='x')
                     PrintHex(va_arg(arguments,UINT64));
                 else if(*format=='s')

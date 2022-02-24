@@ -1,5 +1,5 @@
 #include<PagInit.h>
-#include<PageFrameAllocator.h>
+
 extern PageFrameAllocator Allocator;
 
 void PagingInit(BOOT_CONFIG *BootConfig){
@@ -33,6 +33,6 @@ void PagingInit(BOOT_CONFIG *BootConfig){
     memset((void*)FrameBase,0,FrameSize);
     ChangeCol(0);ChangeRow(0);
 
-    BootConfig->pageTableManager=pageTableManager;
-    BootConfig->pageFrameAllocator=&Allocator;
+    // BootConfig->pageTableManager=pageTableManager;
+    // BootConfig->pageFrameAllocator=&Allocator;
 }

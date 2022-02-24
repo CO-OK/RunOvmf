@@ -2,8 +2,7 @@
 #include<Uefi.h>
 #include<Video.h>
 #include<Memory32.h>
-#include<PageTableManager.h>
-#include<PageFrameAllocator.h>
+
 typedef struct __attribute__((packed)){
     EFI_PHYSICAL_ADDRESS       FrameBufferBase;
     UINT64                      FrameBufferSize;
@@ -18,6 +17,7 @@ typedef struct
 {
   VIDEO_CONFIG VideoConfig;
   MemoryMapStatus MemoryMap;
-  PageTableManager pageTableManager;
-  PageFrameAllocator* pageFrameAllocator;
+  // PageTableManager pageTableManager;
+  // PageFrameAllocator* pageFrameAllocator;
+  void* rsdp;//root system description pointer
 }BOOT_CONFIG;

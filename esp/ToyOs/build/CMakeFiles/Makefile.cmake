@@ -61,6 +61,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "Src/CMakeFiles/Assert.dir/DependInfo.cmake"
   "Src/CMakeFiles/Panic.dir/DependInfo.cmake"
   "Src/CMakeFiles/IO.dir/DependInfo.cmake"
+  "Src/CMakeFiles/Acpi.dir/DependInfo.cmake"
   "Src/Paging/CMakeFiles/PageFrameAllocator.dir/DependInfo.cmake"
   "Src/Paging/CMakeFiles/PageMapIndexer.dir/DependInfo.cmake"
   "Src/Paging/CMakeFiles/PageTableManager.dir/DependInfo.cmake"
