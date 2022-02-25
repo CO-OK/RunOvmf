@@ -45,6 +45,11 @@ add_library(Acpi
     Acpi.c
 )
 
+add_library(PCI
+    OBJECT
+    PCI.c
+)
+
 target_include_directories(Video
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
@@ -82,6 +87,11 @@ target_include_directories(IO
                           )
 
 target_include_directories(Acpi
+                            PUBLIC
+                            ${CMAKE_SOURCE_DIR}/Include
+                          )
+
+target_include_directories(PCI
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
                           )

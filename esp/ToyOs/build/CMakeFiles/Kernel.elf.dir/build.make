@@ -93,7 +93,8 @@ Kernel_elf_EXTERNAL_OBJECTS = \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/UserInputs/CMakeFiles/KbScanCodeTranslation.dir/KbScanCodeTranslation.c.o" \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/UserInputs/CMakeFiles/KeyBoard.dir/KeyBoard.c.o" \
 "/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/UserInputs/CMakeFiles/Mouse.dir/Mouse.c.o" \
-"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Acpi.dir/Acpi.c.o"
+"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/Acpi.dir/Acpi.c.o" \
+"/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/PCI.dir/PCI.c.o"
 
 Kernel.elf: Src/CMakeFiles/Video.dir/Video.c.o
 Kernel.elf: Src/CMakeFiles/Shell.dir/Shell.c.o
@@ -115,6 +116,7 @@ Kernel.elf: Src/UserInputs/CMakeFiles/KbScanCodeTranslation.dir/KbScanCodeTransl
 Kernel.elf: Src/UserInputs/CMakeFiles/KeyBoard.dir/KeyBoard.c.o
 Kernel.elf: Src/UserInputs/CMakeFiles/Mouse.dir/Mouse.c.o
 Kernel.elf: Src/CMakeFiles/Acpi.dir/Acpi.c.o
+Kernel.elf: Src/CMakeFiles/PCI.dir/PCI.c.o
 Kernel.elf: CMakeFiles/Kernel.elf.dir/build.make
 Kernel.elf: CMakeFiles/Kernel.elf.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking C executable Kernel.elf"

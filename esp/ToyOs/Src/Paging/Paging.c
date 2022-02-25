@@ -1,19 +1,19 @@
 #include<PagInit.h>
 
 extern PageFrameAllocator Allocator;
-
+PageTableManager GlobalPageTableManager;
 void PagingInit(BOOT_CONFIG *BootConfig){
 
     PageMapLevel4Entry * PML4 = (PageMapLevel4Entry*)RequestPage();
     memset(PML4,0,4096);
-    PageTableManager pageTableManager;
-    pageTableManager.PML4=PML4;
+    
+    GlobalPageTableManager.PML4=PML4;
     
     
     
     for(uint64_t i=0;i<GetTotallMemory();i+=4096){
         
-        MapMemory((void*)i,(void*)i,&pageTableManager);
+        MapMemory((void*)i,(void*)i,&GlobalPageTableManager);
     }
     
     
@@ -25,7 +25,7 @@ void PagingInit(BOOT_CONFIG *BootConfig){
     uint64_t FrameSize = BootConfig->VideoConfig.FrameBufferSize+4096;
     //Allocator.pageCtrlTable.LockPages((void*)FrameBase, FrameSize/ 0x1000 + 1);
     for(uint64_t i=FrameBase;i<FrameBase+FrameSize;i+=4096 ){
-        MapMemory((void*)i,(void*)i,&pageTableManager);
+        MapMemory((void*)i,(void*)i,&GlobalPageTableManager);
     }
     asm ("mov %0,%%cr3"::"r"(PML4));
     

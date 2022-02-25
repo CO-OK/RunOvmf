@@ -247,6 +247,19 @@ Acpi/fast:
 .PHONY : Acpi/fast
 
 #=============================================================================
+# Target rules for targets named PCI
+
+# Build rule for target.
+PCI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PCI
+.PHONY : PCI
+
+# fast build rule for target.
+PCI/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/PCI.dir/build.make Src/CMakeFiles/PCI.dir/build
+.PHONY : PCI/fast
+
+#=============================================================================
 # Target rules for targets named PageFrameAllocator
 
 # Build rule for target.
@@ -410,6 +423,7 @@ help:
 	@echo "... KeyBoard"
 	@echo "... Memory32"
 	@echo "... Mouse"
+	@echo "... PCI"
 	@echo "... PageFrameAllocator"
 	@echo "... PageMapIndexer"
 	@echo "... PageTableManager"

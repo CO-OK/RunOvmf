@@ -45,5 +45,22 @@ typedef struct __attribute__((packed)){
     uint64_t Reserved;
 }MCFGHeader;
 
+typedef struct __attribute__((packed)){
+    /*
+        https://wiki.osdev.org/PCI_Express#Extended_PCI_Bus_Numbering
+    */
+    /*Base address of enhanced configuration mechanism */
+    uint64_t BassAddress;
+    /*PCI Segment Group Number */
+    uint16_t SegmentGroup;
+    /*Start PCI bus number decoded by this host bridge */
+    uint8_t BusStart;
+    /*End PCI bus number decoded by this host bridge */
+    uint8_t BusEnd;
+    /*Reserved */
+    uint32_t Reserved;
+
+}MCFGDeviceConfig;
+
 /*得到Table*/
 void* GetAcpiTable(SDTHeader*sdtHeader,uint32_t signature);

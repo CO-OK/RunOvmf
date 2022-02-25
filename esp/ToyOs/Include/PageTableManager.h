@@ -7,7 +7,7 @@ typedef struct {
     PageMapLevel4Entry*PML4;
 }PageTableManager;
 
-
+extern PageTableManager GlobalPageTableManager;
 /*实现虚实映射*/
 void MapMemory(void* virtualMemory, void* physicalMemory,PageTableManager*pageTableManager);
 

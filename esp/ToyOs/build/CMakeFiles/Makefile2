@@ -101,6 +101,7 @@ Src/all: Src/CMakeFiles/Assert.dir/all
 Src/all: Src/CMakeFiles/Panic.dir/all
 Src/all: Src/CMakeFiles/IO.dir/all
 Src/all: Src/CMakeFiles/Acpi.dir/all
+Src/all: Src/CMakeFiles/PCI.dir/all
 .PHONY : Src/all
 
 # Recursive "preinstall" directory target.
@@ -117,6 +118,7 @@ Src/clean: Src/CMakeFiles/Assert.dir/clean
 Src/clean: Src/CMakeFiles/Panic.dir/clean
 Src/clean: Src/CMakeFiles/IO.dir/clean
 Src/clean: Src/CMakeFiles/Acpi.dir/clean
+Src/clean: Src/CMakeFiles/PCI.dir/clean
 .PHONY : Src/clean
 
 #=============================================================================
@@ -206,6 +208,7 @@ CMakeFiles/Kernel.elf.dir/all: Src/CMakeFiles/Assert.dir/all
 CMakeFiles/Kernel.elf.dir/all: Src/CMakeFiles/Panic.dir/all
 CMakeFiles/Kernel.elf.dir/all: Src/CMakeFiles/IO.dir/all
 CMakeFiles/Kernel.elf.dir/all: Src/CMakeFiles/Acpi.dir/all
+CMakeFiles/Kernel.elf.dir/all: Src/CMakeFiles/PCI.dir/all
 CMakeFiles/Kernel.elf.dir/all: Src/Paging/CMakeFiles/PageFrameAllocator.dir/all
 CMakeFiles/Kernel.elf.dir/all: Src/Paging/CMakeFiles/PageMapIndexer.dir/all
 CMakeFiles/Kernel.elf.dir/all: Src/Paging/CMakeFiles/PageTableManager.dir/all
@@ -224,7 +227,7 @@ CMakeFiles/Kernel.elf.dir/all: Src/UserInputs/CMakeFiles/Mouse.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Kernel.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles 22
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Kernel.elf.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles 0
 .PHONY : CMakeFiles/Kernel.elf.dir/rule
@@ -245,7 +248,7 @@ CMakeFiles/Kernel.elf.dir/clean:
 Src/CMakeFiles/Video.dir/all:
 	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Video.dir/build.make Src/CMakeFiles/Video.dir/depend
 	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Video.dir/build.make Src/CMakeFiles/Video.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=20 "Built target Video"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=21 "Built target Video"
 .PHONY : Src/CMakeFiles/Video.dir/all
 
 # Build rule for subdir invocation for target.
@@ -271,7 +274,7 @@ Src/CMakeFiles/Video.dir/clean:
 Src/CMakeFiles/Shell.dir/all:
 	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Shell.dir/build.make Src/CMakeFiles/Shell.dir/depend
 	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Shell.dir/build.make Src/CMakeFiles/Shell.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=19 "Built target Shell"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=20 "Built target Shell"
 .PHONY : Src/CMakeFiles/Shell.dir/all
 
 # Build rule for subdir invocation for target.
@@ -401,7 +404,7 @@ Src/CMakeFiles/Assert.dir/clean:
 Src/CMakeFiles/Panic.dir/all:
 	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Panic.dir/build.make Src/CMakeFiles/Panic.dir/depend
 	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/Panic.dir/build.make Src/CMakeFiles/Panic.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=18 "Built target Panic"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=19 "Built target Panic"
 .PHONY : Src/CMakeFiles/Panic.dir/all
 
 # Build rule for subdir invocation for target.
@@ -473,13 +476,39 @@ Src/CMakeFiles/Acpi.dir/clean:
 .PHONY : Src/CMakeFiles/Acpi.dir/clean
 
 #=============================================================================
+# Target rules for target Src/CMakeFiles/PCI.dir
+
+# All Build rule for target.
+Src/CMakeFiles/PCI.dir/all:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/PCI.dir/build.make Src/CMakeFiles/PCI.dir/depend
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/PCI.dir/build.make Src/CMakeFiles/PCI.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=14 "Built target PCI"
+.PHONY : Src/CMakeFiles/PCI.dir/all
+
+# Build rule for subdir invocation for target.
+Src/CMakeFiles/PCI.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles 1
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Src/CMakeFiles/PCI.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles 0
+.PHONY : Src/CMakeFiles/PCI.dir/rule
+
+# Convenience name for target.
+PCI: Src/CMakeFiles/PCI.dir/rule
+.PHONY : PCI
+
+# clean rule for target.
+Src/CMakeFiles/PCI.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/PCI.dir/build.make Src/CMakeFiles/PCI.dir/clean
+.PHONY : Src/CMakeFiles/PCI.dir/clean
+
+#=============================================================================
 # Target rules for target Src/Paging/CMakeFiles/PageFrameAllocator.dir
 
 # All Build rule for target.
 Src/Paging/CMakeFiles/PageFrameAllocator.dir/all:
 	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/PageFrameAllocator.dir/build.make Src/Paging/CMakeFiles/PageFrameAllocator.dir/depend
 	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/PageFrameAllocator.dir/build.make Src/Paging/CMakeFiles/PageFrameAllocator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=14 "Built target PageFrameAllocator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=15 "Built target PageFrameAllocator"
 .PHONY : Src/Paging/CMakeFiles/PageFrameAllocator.dir/all
 
 # Build rule for subdir invocation for target.
@@ -505,7 +534,7 @@ Src/Paging/CMakeFiles/PageFrameAllocator.dir/clean:
 Src/Paging/CMakeFiles/PageMapIndexer.dir/all:
 	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/PageMapIndexer.dir/build.make Src/Paging/CMakeFiles/PageMapIndexer.dir/depend
 	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/PageMapIndexer.dir/build.make Src/Paging/CMakeFiles/PageMapIndexer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=15 "Built target PageMapIndexer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=16 "Built target PageMapIndexer"
 .PHONY : Src/Paging/CMakeFiles/PageMapIndexer.dir/all
 
 # Build rule for subdir invocation for target.
@@ -531,7 +560,7 @@ Src/Paging/CMakeFiles/PageMapIndexer.dir/clean:
 Src/Paging/CMakeFiles/PageTableManager.dir/all:
 	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/PageTableManager.dir/build.make Src/Paging/CMakeFiles/PageTableManager.dir/depend
 	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/PageTableManager.dir/build.make Src/Paging/CMakeFiles/PageTableManager.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=16 "Built target PageTableManager"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=17 "Built target PageTableManager"
 .PHONY : Src/Paging/CMakeFiles/PageTableManager.dir/all
 
 # Build rule for subdir invocation for target.
@@ -557,7 +586,7 @@ Src/Paging/CMakeFiles/PageTableManager.dir/clean:
 Src/Paging/CMakeFiles/Paging.dir/all:
 	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/Paging.dir/build.make Src/Paging/CMakeFiles/Paging.dir/depend
 	$(MAKE) $(MAKESILENT) -f Src/Paging/CMakeFiles/Paging.dir/build.make Src/Paging/CMakeFiles/Paging.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=17 "Built target Paging"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=18 "Built target Paging"
 .PHONY : Src/Paging/CMakeFiles/Paging.dir/all
 
 # Build rule for subdir invocation for target.
@@ -609,7 +638,7 @@ Src/GDT/CMakeFiles/GDT.dir/clean:
 Src/GDT/CMakeFiles/gdt.dir/all:
 	$(MAKE) $(MAKESILENT) -f Src/GDT/CMakeFiles/gdt.dir/build.make Src/GDT/CMakeFiles/gdt.dir/depend
 	$(MAKE) $(MAKESILENT) -f Src/GDT/CMakeFiles/gdt.dir/build.make Src/GDT/CMakeFiles/gdt.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=21 "Built target gdt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/v/program/EFI/runOvmf/esp/ToyOs/build/CMakeFiles --progress-num=22 "Built target gdt"
 .PHONY : Src/GDT/CMakeFiles/gdt.dir/all
 
 # Build rule for subdir invocation for target.

@@ -63,6 +63,7 @@ void InitACPI(BOOT_CONFIG *BootConfig){
     //     //printf("\n");
     // }
     MCFGHeader*mcfg=(MCFGHeader*)GetAcpiTable(xsdt,MCFG_SIGNATURE);
-    printf("%x\n",mcfg->Header.Signature);
+    
+    EnumeratePCI(mcfg);
     
 }
