@@ -62,14 +62,16 @@ void ReadEFIMemoryMap(IN EFI_MEMORY_DESCRIPTOR* desc,IN int num,IN UINTN Descrip
     Allocator.pageCtrlTable.GetUsedMemory=GetUsedMemory;
     Allocator.pageCtrlTable.RequestPage=RequestPage;
     /*锁定BitMap所在页*/
-    Allocator.pageCtrlTable.LockPages(Allocator.PageBitMap.MapBase,Allocator.PageBitMap.size/4096+1);
+    //Allocator.pageCtrlTable.LockPages(Allocator.PageBitMap.MapBase,Allocator.PageBitMap.size/4096+1);
+    /*先reserve所有内存当需要新的内存时再从EfiConventionalMemory中unreserve*/
+    Allocator.pageCtrlTable.ReservePages(0,TotalMemory/4096+1);
     //printf("lock pages done\n");
     /*reserve不是EfiConventionalMemory的neicun*/
     temp=desc;
     for(int i=0;i<num;i++){
-        if(temp->Type!=EfiConventionalMemory&&temp->Pad!=1){
+        if(temp->Type==EfiConventionalMemory&&temp->Pad!=1){
             /*reserve pages*/
-            Allocator.pageCtrlTable.ReservePages((void*)temp->PhysicalStart,temp->NumberOfPages);
+            Allocator.pageCtrlTable.UnReservePages((void*)temp->PhysicalStart,temp->NumberOfPages);
         }
         temp++;
     }
