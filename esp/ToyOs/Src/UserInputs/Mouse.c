@@ -125,22 +125,25 @@ void HandlePS2Mouse(uint8_t byte){
     /*
         https://wiki.osdev.org/Mouse_Input#Mouse_Packet_Info
     */
+    ProcessMousePacked();
+    static bool skip=true;
+    if(skip){skip=false;return;}
     switch (MouseCycle)
     {
     case 0:
-        if(PacketReady) break;
+        //if(PacketReady) break;
         if(byte&0b00001000==0)break;//包被破坏
         /* code */
         Packet[0]=byte;
         MouseCycle++;
         break;
     case 1:
-        if(PacketReady) break;
+        //if(PacketReady) break;
         Packet[1]=byte;
         MouseCycle++;
         break;
     case 2:
-        if(PacketReady) break;
+        //if(PacketReady) break;
         Packet[2]=byte;
         MouseCycle=0;
         PacketReady=true;

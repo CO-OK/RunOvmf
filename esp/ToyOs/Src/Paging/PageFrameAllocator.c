@@ -62,7 +62,7 @@ void ReadEFIMemoryMap(IN EFI_MEMORY_DESCRIPTOR* desc,IN int num,IN UINTN Descrip
     Allocator.pageCtrlTable.GetUsedMemory=GetUsedMemory;
     Allocator.pageCtrlTable.RequestPage=RequestPage;
     /*锁定BitMap所在页*/
-    //Allocator.pageCtrlTable.LockPages(Allocator.PageBitMap.MapBase,Allocator.PageBitMap.size/4096+1);
+    
     /*先reserve所有内存当需要新的内存时再从EfiConventionalMemory中unreserve*/
     Allocator.pageCtrlTable.ReservePages(0,TotalMemory/4096+1);
     //printf("lock pages done\n");
@@ -75,6 +75,8 @@ void ReadEFIMemoryMap(IN EFI_MEMORY_DESCRIPTOR* desc,IN int num,IN UINTN Descrip
         }
         temp++;
     }
+    Allocator.pageCtrlTable.ReservePages(0,0x100);//一些系统中要保留这些内存(bios)，所以以防万一直接reserve 0-->0x100000
+    Allocator.pageCtrlTable.LockPages(Allocator.PageBitMap.MapBase,Allocator.PageBitMap.size/4096+1);
     //printf("Reserve pages done\n");
 }
 
