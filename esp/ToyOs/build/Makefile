@@ -260,6 +260,19 @@ PCI/fast:
 .PHONY : PCI/fast
 
 #=============================================================================
+# Target rules for targets named PciDescriptor
+
+# Build rule for target.
+PciDescriptor: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PciDescriptor
+.PHONY : PciDescriptor
+
+# fast build rule for target.
+PciDescriptor/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/PciDescriptor.dir/build.make Src/CMakeFiles/PciDescriptor.dir/build
+.PHONY : PciDescriptor/fast
+
+#=============================================================================
 # Target rules for targets named PageFrameAllocator
 
 # Build rule for target.
@@ -429,6 +442,7 @@ help:
 	@echo "... PageTableManager"
 	@echo "... Paging"
 	@echo "... Panic"
+	@echo "... PciDescriptor"
 	@echo "... Shell"
 	@echo "... Video"
 	@echo "... gdt"

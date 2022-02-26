@@ -50,6 +50,10 @@ add_library(PCI
     PCI.c
 )
 
+add_library(PciDescriptor
+    OBJECT
+    PciDescriptor.c
+)
 target_include_directories(Video
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
@@ -92,6 +96,11 @@ target_include_directories(Acpi
                           )
 
 target_include_directories(PCI
+                            PUBLIC
+                            ${CMAKE_SOURCE_DIR}/Include
+                          )
+
+target_include_directories(PciDescriptor
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
                           )

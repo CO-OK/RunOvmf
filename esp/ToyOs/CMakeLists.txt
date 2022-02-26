@@ -52,5 +52,6 @@ target_link_libraries(Kernel.elf PUBLIC KeyBoard)
 target_link_libraries(Kernel.elf PUBLIC Mouse)
 target_link_libraries(Kernel.elf PUBLIC Acpi)
 target_link_libraries(Kernel.elf PUBLIC PCI)
+target_link_libraries(Kernel.elf PUBLIC PciDescriptor)
 
 

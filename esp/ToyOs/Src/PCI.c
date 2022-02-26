@@ -45,6 +45,8 @@ void EnumerateDevice(uint64_t busAddress, uint64_t device){
             EnumerateFunction(deviceAddress, func);
     }  
 }
+//const char* const test[]={"12345","45678}"};
+
 void EnumerateFunction(uint64_t deviceAddress,uint64_t func){
     uint64_t offset = func << 12;//why
     uint64_t funcAddress = deviceAddress + offset;
@@ -54,7 +56,16 @@ void EnumerateFunction(uint64_t deviceAddress,uint64_t func){
 
     if (pciDeviceHeader->DeviceID == 0) return;
     if (pciDeviceHeader->DeviceID == 0xFFFF) return;
-
-    printf("DeviceID=%x\n",pciDeviceHeader->DeviceID);
-    printf("VendorID=%x\n",pciDeviceHeader->VendorID);
+    
+    printf("DeviceID=%x ",pciDeviceHeader->DeviceID);
+    printf("VendorID=%x ",pciDeviceHeader->VendorID);
+    
+    printf("%s/",GetVendorName(pciDeviceHeader->VendorID));
+    printf("%s/",GetDeviceName(pciDeviceHeader->VendorID,pciDeviceHeader->DeviceID));
+    printf("%s/",GetDeviceClassName(pciDeviceHeader->ClassCode));
+    printf("%s/",GetSubclassName(pciDeviceHeader->ClassCode,pciDeviceHeader->Subclass));
+    printf("%s\n",GetProgIFName(pciDeviceHeader->ClassCode,pciDeviceHeader->Subclass,pciDeviceHeader->ProgIF));
+    
+    
 }
+

@@ -2,6 +2,7 @@
 #include<Acpi.h>
 #include<PageTableManager.h>
 #include<Char.h>
+
 typedef struct {
     /*
         不同的 PCI有不同的结构，但表头大体一致
@@ -58,3 +59,11 @@ void EnumerateBus(uint64_t bassAddress,uint64_t bus);
 void EnumerateDevice(uint64_t busAddress, uint64_t device);
 
 void EnumerateFunction(uint64_t deviceAddress, uint64_t func);
+
+
+extern const char* DeviceClasses[];
+const char* GetDeviceClassName(int i);
+const char* GetVendorName(uint16_t vendorID);
+const char* GetDeviceName(uint16_t vendorID, uint16_t deviceID);
+const char* GetSubclassName(uint8_t classCode, uint8_t subclassCode);
+const char* GetProgIFName(uint8_t classCode, uint8_t subclassCode, uint8_t progIF);
