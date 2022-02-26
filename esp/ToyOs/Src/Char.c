@@ -20,7 +20,7 @@ uint32_t ForeColor;
 extern UINT32 *VideoStart;
 extern UINT64 FrameBufferSize;
 
-unsigned char VideoBuffer[28][84]={};
+unsigned char VideoBuffer[33][112]={};
 void _putchar(uint32_t fb,
     /* note that this is int, not char as it's a unicode character */
     unsigned short int c,
@@ -291,8 +291,8 @@ void CharInit(){
           VideoBuffer[i][j]=' ';
       }
     }
-  Row=28;
-  Col=84;
+  Row=33;
+  Col=112;
   BackColor=Black;
   ForeColor=White;
 }

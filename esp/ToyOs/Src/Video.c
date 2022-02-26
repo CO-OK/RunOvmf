@@ -9,8 +9,8 @@ UINT64 FrameBufferSize;
 /* number of bytes in each line, it's possible it's not screen width * bytesperpixel! */
 int scanline=0;
 /*字符模式下总行数总列数*/
-int Row=28;
-int Col=84;
+int Row=33;
+int Col=112;
 /*字符模式下光标所在位置*/
 int CurrentRow=0;
 int CurrentCol=0;

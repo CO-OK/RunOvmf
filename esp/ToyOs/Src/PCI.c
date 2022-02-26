@@ -57,8 +57,8 @@ void EnumerateFunction(uint64_t deviceAddress,uint64_t func){
     if (pciDeviceHeader->DeviceID == 0) return;
     if (pciDeviceHeader->DeviceID == 0xFFFF) return;
     
-    printf("DeviceID=%x ",pciDeviceHeader->DeviceID);
-    printf("VendorID=%x ",pciDeviceHeader->VendorID);
+    // printf("DeviceID=%x ",pciDeviceHeader->DeviceID);
+    // printf("VendorID=%x ",pciDeviceHeader->VendorID);
     
     printf("%s/",GetVendorName(pciDeviceHeader->VendorID));
     printf("%s/",GetDeviceName(pciDeviceHeader->VendorID,pciDeviceHeader->DeviceID));
