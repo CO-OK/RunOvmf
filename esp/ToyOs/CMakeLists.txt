@@ -23,6 +23,8 @@ add_subdirectory(Src/Paging)
 add_subdirectory(Src/GDT)
 add_subdirectory(Src/Interrupts)
 add_subdirectory(Src/UserInputs)
+add_subdirectory(Src/Heap)
+add_subdirectory(Src/Scheduling)
 
 
 
@@ -53,5 +55,7 @@ target_link_libraries(Kernel.elf PUBLIC Mouse)
 target_link_libraries(Kernel.elf PUBLIC Acpi)
 target_link_libraries(Kernel.elf PUBLIC PCI)
 target_link_libraries(Kernel.elf PUBLIC PciDescriptor)
+target_link_libraries(Kernel.elf PUBLIC Heap)
+target_link_libraries(Kernel.elf PUBLIC PIT)
 
 

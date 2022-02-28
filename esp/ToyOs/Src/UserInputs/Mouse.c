@@ -132,7 +132,7 @@ void HandlePS2Mouse(uint8_t byte){
     {
     case 0:
         //if(PacketReady) break;
-        if(byte&0b00001000==0)break;//包被破坏
+        if((byte&0b00001000)==0)break;//包被破坏
         /* code */
         Packet[0]=byte;
         MouseCycle++;

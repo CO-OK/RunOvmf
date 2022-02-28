@@ -20,7 +20,7 @@ uint32_t ForeColor;
 extern UINT32 *VideoStart;
 extern UINT64 FrameBufferSize;
 
-unsigned char VideoBuffer[33][112]={};
+unsigned char VideoBuffer[54][112]={};
 void _putchar(uint32_t fb,
     /* note that this is int, not char as it's a unicode character */
     unsigned short int c,
@@ -43,16 +43,16 @@ void _putchar(uint32_t fb,
        we only do this once, and adjust the offset later. This is faster. */
     int offs =
         (cy * font->height * scanline) +
-        (cx * (font->width + 1) * sizeof(ONEPIXEL));
+        (cx * (bytesperline*8 + 1) * sizeof(ONEPIXEL));
     /* finally display pixels according to the bitmap */
     int x,y, line,mask;
     for(y=0;y<font->height;y++){
         /* save the starting position of the line */
         line=offs;
-        mask=1<<(font->width-1);
+        mask=1<<(bytesperline*8-1);
         uint32_t *ptr;
         /* display a row */
-        for(x=0;x<font->width;x++){
+        for(x=0;x<bytesperline*8;x++){
             ptr=((ONEPIXEL*)(fb + line));
             if((uint64_t)ptr<(uint64_t)(fb)+FrameBufferSize)
                 *ptr = *((unsigned int*)glyph) & mask ? fg : bg;
@@ -291,7 +291,7 @@ void CharInit(){
           VideoBuffer[i][j]=' ';
       }
     }
-  Row=33;
+  Row=54;
   Col=112;
   BackColor=Black;
   ForeColor=White;

@@ -83,6 +83,8 @@ void InitInterrupts(){
     /*Mouse*/
     SetIDTGate(Mouse_Handler,0x2c,IDT_TA_InterruptGate,0x08);
     
+    /*PIT*/
+    SetIDTGate(PIT_Handler,0x20,IDT_TA_InterruptGate, 0x08);
     /*加载IDT*/
     asm ("lidt %0" : : "m" (idtr));
 
@@ -99,7 +101,7 @@ void InitInterrupts(){
     /*enable maskble interrupts*/
    
     InitPS2Mouse();
-    outb(PIC1_DATA,0b11111001);//bit 2 置0容许2级PIC向Master发送中断
+    outb(PIC1_DATA,0b11111000);//bit 2 置0容许2级PIC向Master发送中断 bit0置零容许计时器发送中断
     outb(PIC2_DATA,0b11101111);//bit 4 让鼠标发送的中断不被屏蔽
 
     asm("sti");//IF置1

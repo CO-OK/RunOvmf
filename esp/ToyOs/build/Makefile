@@ -415,6 +415,32 @@ Mouse/fast:
 	$(MAKE) $(MAKESILENT) -f Src/UserInputs/CMakeFiles/Mouse.dir/build.make Src/UserInputs/CMakeFiles/Mouse.dir/build
 .PHONY : Mouse/fast
 
+#=============================================================================
+# Target rules for targets named Heap
+
+# Build rule for target.
+Heap: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Heap
+.PHONY : Heap
+
+# fast build rule for target.
+Heap/fast:
+	$(MAKE) $(MAKESILENT) -f Src/Heap/CMakeFiles/Heap.dir/build.make Src/Heap/CMakeFiles/Heap.dir/build
+.PHONY : Heap/fast
+
+#=============================================================================
+# Target rules for targets named PIT
+
+# Build rule for target.
+PIT: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PIT
+.PHONY : PIT
+
+# fast build rule for target.
+PIT/fast:
+	$(MAKE) $(MAKESILENT) -f Src/Scheduling/CMakeFiles/PIT.dir/build.make Src/Scheduling/CMakeFiles/PIT.dir/build
+.PHONY : PIT/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -427,6 +453,7 @@ help:
 	@echo "... Assert"
 	@echo "... Char"
 	@echo "... GDT"
+	@echo "... Heap"
 	@echo "... IO"
 	@echo "... InterruptHandler"
 	@echo "... Interrupts"
@@ -437,6 +464,7 @@ help:
 	@echo "... Memory32"
 	@echo "... Mouse"
 	@echo "... PCI"
+	@echo "... PIT"
 	@echo "... PageFrameAllocator"
 	@echo "... PageMapIndexer"
 	@echo "... PageTableManager"

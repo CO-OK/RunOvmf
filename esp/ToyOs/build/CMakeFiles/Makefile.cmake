@@ -10,8 +10,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../CMakeLists.txt"
   "../Src/CMakeLists.txt"
   "../Src/GDT/CMakeLists.txt"
+  "../Src/Heap/CMakeLists.txt"
   "../Src/Interrupts/CMakeLists.txt"
   "../Src/Paging/CMakeLists.txt"
+  "../Src/Scheduling/CMakeLists.txt"
   "../Src/UserInputs/CMakeLists.txt"
   "CMakeFiles/3.22.2/CMakeASM_NASMCompiler.cmake"
   "CMakeFiles/3.22.2/CMakeCCompiler.cmake"
@@ -48,6 +50,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "Src/GDT/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Src/Interrupts/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Src/UserInputs/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Src/Heap/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Src/Scheduling/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -75,4 +79,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "Src/UserInputs/CMakeFiles/KbScanCodeTranslation.dir/DependInfo.cmake"
   "Src/UserInputs/CMakeFiles/KeyBoard.dir/DependInfo.cmake"
   "Src/UserInputs/CMakeFiles/Mouse.dir/DependInfo.cmake"
+  "Src/Heap/CMakeFiles/Heap.dir/DependInfo.cmake"
+  "Src/Scheduling/CMakeFiles/PIT.dir/DependInfo.cmake"
   )

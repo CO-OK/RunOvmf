@@ -27,6 +27,14 @@ __attribute__((interrupt)) void Mouse_Handler(interrupt_frame* frame){
     //while(true);
 }
 
+__attribute__((interrupt)) void PIT_Handler(interrupt_frame* frame){
+    
+
+    Tick();
+    PIC_EndMaster();
+    //printf("m");
+    //while(true);
+}
 
 __attribute__((interrupt)) void KeyBoard_Handler(interrupt_frame* frame){
     

@@ -11,6 +11,8 @@
 #include<Interrupts.h>
 #include<Acpi.h>
 #include<PCI.h>
+#include<Heap.h>
+#include<PIT.h>
 void KernelInit(BOOT_CONFIG* BootConfig);
 
 void InitACPI(BOOT_CONFIG *BootConfig);

@@ -21,8 +21,17 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     
     
     
+    // printf("%x\n",(uint64_t)malloc(0x8000));
     
-    
+    // void*a=malloc(0x8000);
+    // printf("%x\n",(uint64_t)a);
+    // printf("%x\n",(uint64_t)malloc(0x100));
+    // free(a);
+    // printf("%x\n",(uint64_t)malloc(0x8000));
+    // printf("6");
+    // Sleepd(10);
+    // printf("7");
+    SetDivisor(20000);
     
     while(1){}
     return PassBack;
@@ -37,9 +46,12 @@ void KernelInit(BOOT_CONFIG* BootConfig){
     
     InitGDT();
     MemoryInit(&BootConfig->MemoryMap);
+
+    
     //printf("%x\n",BootConfig->VideoConfig.FrameBufferBase);
     PagingInit(BootConfig);
     
+    InitHeap((void*)(uint64_t)0x0000100000000000, 0x10);
     InitInterrupts();
     InitACPI(BootConfig);
     printf("Kernel\n");

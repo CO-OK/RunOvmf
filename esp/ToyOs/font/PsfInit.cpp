@@ -46,7 +46,7 @@ void read_psf(){
     printf("bytes per glyph=%d\n",font->bytesperglyph);
     printf("height=%d\n",font->height);
     printf("width=%d\n",font->width);
-    bool a;
+    
 }
 void psf_init()
 {
@@ -56,16 +56,11 @@ void psf_init()
     int bytesperline=(font->width+7)/8;
     printf("bytesperline=%d\n",bytesperline);
     unsigned short *glyph =(unsigned short*)((unsigned char*)&_binary_font_psf_start +font->headersize+font->bytesperglyph*'A') ;
-    for(int i=0;i<32;i++){
+    for(int i=0;i<20;i++){
         cout<<bitset<16>(*glyph)<<endl;
         glyph++;
     }
-    uint32_t a;
-    uint32_t *p=&a;
-    printf("%x\n",p);
-    p++;
-    printf("%x\n",p);
-    printf("%x\n",p+1);
+    
      
 }
 const char* file[]={
@@ -81,6 +76,6 @@ int main(){
 
     read_psf();
     psf_init();
-    printf("%d\n",sizeof(PageMapLevel4Entry));
+   
     
 }

@@ -5,6 +5,7 @@
 #include<PageFrameAllocator.h>
 #include<KeyBoard.h>
 #include<Mouse.h>
+#include<PIT.h>
 // https://wiki.osdev.org/Interrupt 
 
 /*InterruptDescriptor(Gate)的类型以及属性*/
@@ -87,3 +88,4 @@ __attribute__((interrupt)) void DoubleFault_Handler(interrupt_frame* frame);
 __attribute__((interrupt)) void GeneralProtectionFault_Handler(interrupt_frame* frame);
 __attribute__((interrupt)) void KeyBoard_Handler(interrupt_frame* frame);
 __attribute__((interrupt)) void Mouse_Handler(interrupt_frame* frame);
+__attribute__((interrupt)) void PIT_Handler(interrupt_frame* frame);

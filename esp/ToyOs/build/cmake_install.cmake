@@ -49,6 +49,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/GDT/cmake_install.cmake")
   include("/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Interrupts/cmake_install.cmake")
   include("/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/UserInputs/cmake_install.cmake")
+  include("/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Heap/cmake_install.cmake")
+  include("/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Scheduling/cmake_install.cmake")
 
 endif()
 
