@@ -1,5 +1,5 @@
 #include<PCI.h>
-
+#include<AHCI.h>
 /*
 另一种访问配置空间的方式是通过寄存器进行访问。总线内部为配置空间准备了16M寻址空间，找到寻址空间的起始地址，
 根据公式PCIE_BASE_ADDRESS + (bus<<20) + (dev<<15) +(fun<<12) + offset计算出总线地址，在该地址处读取数据。
@@ -65,6 +65,21 @@ void EnumerateFunction(uint64_t deviceAddress,uint64_t func){
     printf("%s/",GetDeviceClassName(pciDeviceHeader->ClassCode));
     printf("%s/",GetSubclassName(pciDeviceHeader->ClassCode,pciDeviceHeader->Subclass));
     printf("%s\n",GetProgIFName(pciDeviceHeader->ClassCode,pciDeviceHeader->Subclass,pciDeviceHeader->ProgIF));
+
+    switch(pciDeviceHeader->ClassCode){
+        case 0x01:{//"Mass Storage Controller"
+            switch(pciDeviceHeader->Subclass){
+                case 0x06:{//"Serial ATA"
+                    switch(pciDeviceHeader->ProgIF){
+                        case 0x01:{//"AHCI 1.0 device"
+                            printf("init\n");
+                            AHCIDriver* AHCI=InitAHCIDriver(pciDeviceHeader);
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     
 }

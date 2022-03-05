@@ -13,6 +13,7 @@
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/PCI.dir
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/PciDescriptor.dir
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/PowerManage.dir
+/home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/AHCI.dir
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/edit_cache.dir
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/CMakeFiles/rebuild_cache.dir
 /home/v/program/EFI/runOvmf/esp/ToyOs/build/Src/Paging/CMakeFiles/PageFrameAllocator.dir

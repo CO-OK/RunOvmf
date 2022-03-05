@@ -60,6 +60,11 @@ add_library(PowerManage
     PowerManage.c
 )
 
+add_library(AHCI
+    OBJECT
+    AHCI.c
+)
+
 target_include_directories(Video
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
@@ -112,6 +117,11 @@ target_include_directories(PciDescriptor
                           )
 
 target_include_directories(PowerManage
+                            PUBLIC
+                            ${CMAKE_SOURCE_DIR}/Include
+                          )
+
+target_include_directories(AHCI
                             PUBLIC
                             ${CMAKE_SOURCE_DIR}/Include
                           )

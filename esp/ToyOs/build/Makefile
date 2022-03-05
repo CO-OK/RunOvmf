@@ -286,6 +286,19 @@ PowerManage/fast:
 .PHONY : PowerManage/fast
 
 #=============================================================================
+# Target rules for targets named AHCI
+
+# Build rule for target.
+AHCI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AHCI
+.PHONY : AHCI
+
+# fast build rule for target.
+AHCI/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/AHCI.dir/build.make Src/CMakeFiles/AHCI.dir/build
+.PHONY : AHCI/fast
+
+#=============================================================================
 # Target rules for targets named PageFrameAllocator
 
 # Build rule for target.
@@ -462,6 +475,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... AHCI"
 	@echo "... Acpi"
 	@echo "... Assert"
 	@echo "... Char"
