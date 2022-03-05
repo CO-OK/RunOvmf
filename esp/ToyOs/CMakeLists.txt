@@ -57,5 +57,6 @@ target_link_libraries(Kernel.elf PUBLIC PCI)
 target_link_libraries(Kernel.elf PUBLIC PciDescriptor)
 target_link_libraries(Kernel.elf PUBLIC Heap)
 target_link_libraries(Kernel.elf PUBLIC PIT)
+target_link_libraries(Kernel.elf PUBLIC PowerManage)
 
 

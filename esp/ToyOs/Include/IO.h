@@ -5,5 +5,7 @@ void outb(uint16_t port,uint8_t value);
 /*端口读入一个字节*/
 uint8_t inb(uint16_t port);
 
+void outw(uint16_t port,uint16_t value);
+
 /*等待*/
 void IO_Wait();

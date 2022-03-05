@@ -17,23 +17,11 @@ UINT64 KernelStart(BOOT_CONFIG *BootConfig)
     
     UINT64 PassBack = 0;
     KernelInit(BootConfig);
+    printf("Kernel init done\n");
     
-    
-    
-    
-    // printf("%x\n",(uint64_t)malloc(0x8000));
-    
-    // void*a=malloc(0x8000);
-    // printf("%x\n",(uint64_t)a);
-    // printf("%x\n",(uint64_t)malloc(0x100));
-    // free(a);
-    // printf("%x\n",(uint64_t)malloc(0x8000));
-    // printf("6");
-    // Sleepd(10);
-    // printf("7");
-    SetDivisor(20000);
-    
-    while(1){}
+    while(1){
+        asm("hlt");
+    }
     return PassBack;
 }
 
@@ -54,7 +42,8 @@ void KernelInit(BOOT_CONFIG* BootConfig){
     InitHeap((void*)(uint64_t)0x0000100000000000, 0x10);
     InitInterrupts();
     InitACPI(BootConfig);
-    printf("Kernel\n");
+    
+    // printf("Kernel\n");
 }
 
 void InitACPI(BOOT_CONFIG *BootConfig){
@@ -62,7 +51,7 @@ void InitACPI(BOOT_CONFIG *BootConfig){
     //https://wiki.osdev.org/XSDT
     SDTHeader* xsdt = (SDTHeader*)(((RSDP*)BootConfig->rsdp)->XsdtAddress);
     
-    int entries = (xsdt->Length-sizeof(SDTHeader))/8;
+    //int entries = (xsdt->Length-sizeof(SDTHeader))/8;
    
     // for(int i=0;i<entries;i++){
     //     SDTHeader* newSDTHeader = (SDTHeader*)(*((uint64_t*)((uint64_t)xsdt+sizeof(SDTHeader)+i*8)));
@@ -77,5 +66,7 @@ void InitACPI(BOOT_CONFIG *BootConfig){
     MCFGHeader*mcfg=(MCFGHeader*)GetAcpiTable(xsdt,MCFG_SIGNATURE);
     
     EnumeratePCI(mcfg);
+
+    
     
 }

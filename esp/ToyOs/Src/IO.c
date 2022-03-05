@@ -30,3 +30,12 @@ void IO_Wait(){
         :
     );
 }
+
+void outw(uint16_t port,uint16_t value){
+    asm volatile (
+        "outw %0,%1"
+        :/*输出*/
+        :"a"(value),"Nd"(port)/*输入*/
+        :
+    );
+}

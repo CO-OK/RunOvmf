@@ -273,6 +273,19 @@ PciDescriptor/fast:
 .PHONY : PciDescriptor/fast
 
 #=============================================================================
+# Target rules for targets named PowerManage
+
+# Build rule for target.
+PowerManage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PowerManage
+.PHONY : PowerManage
+
+# fast build rule for target.
+PowerManage/fast:
+	$(MAKE) $(MAKESILENT) -f Src/CMakeFiles/PowerManage.dir/build.make Src/CMakeFiles/PowerManage.dir/build
+.PHONY : PowerManage/fast
+
+#=============================================================================
 # Target rules for targets named PageFrameAllocator
 
 # Build rule for target.
@@ -471,6 +484,7 @@ help:
 	@echo "... Paging"
 	@echo "... Panic"
 	@echo "... PciDescriptor"
+	@echo "... PowerManage"
 	@echo "... Shell"
 	@echo "... Video"
 	@echo "... gdt"

@@ -13,6 +13,7 @@
 #include<PCI.h>
 #include<Heap.h>
 #include<PIT.h>
+#include<PowerManage.h>
 void KernelInit(BOOT_CONFIG* BootConfig);
 
 void InitACPI(BOOT_CONFIG *BootConfig);
