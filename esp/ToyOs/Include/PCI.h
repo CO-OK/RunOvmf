@@ -51,6 +51,45 @@ typedef struct {
 
 }PCIDeviceHeader;
 
+
+typedef struct{
+    /*包括PCIDeviceHeader在内的完整结构 https://wiki.osdev.org/PCI#Header_Type_0x0 */
+    PCIDeviceHeader Header;
+    uint32_t BAR0;
+    uint32_t BAR1;
+    uint32_t BAR2;
+    uint32_t BAR3;
+    uint32_t BAR4;
+    uint32_t BAR5;
+    /*Points to the Card Information Structure and is used by devices that share silicon between CardBus and PCI. */
+    uint32_t CardbusCISPointer;
+    uint16_t SubsystemVendorID;
+    uint16_t SubsystemID;
+    uint32_t ExpansionROMBaseAddress;
+    /*
+        Points (i.e. an offset into this function's configuration space) to a linked list of new capabilities implemented by the device. 
+        Used if bit 4 of the status register (Capabilities List bit) is set to 1. 
+        The bottom two bits are reserved and should be masked before the Pointer is used to access the Configuration Space.
+     */
+    uint8_t CapabilitiesPointer;
+    uint8_t Reserved0;
+    uint16_t Reserved1;
+    uint32_t Reserved2;
+    /*
+        Specifies which input of the system interrupt controllers the device's interrupt pin is connected to and is implemented by 
+        any device that makes use of an interrupt pin. For the x86 architecture this register corresponds to the 
+        PIC IRQ numbers 0-15 (and not I/O APIC IRQ numbers) and a value of 0xFF defines no connection. 
+    */
+    uint8_t InterruptLine;
+    /* Specifies which interrupt pin the device uses. Where a value of 0x1 is INTA#, 0x2 is INTB#, 0x3 is INTC#, 0x4 is INTD#, and 0x0 means the device does not use an interrupt pin. */
+    uint8_t InterruptPIN;
+    /*A read-only register that specifies the burst period length, in 1/4 microsecond units, that the device needs (assuming a 33 MHz clock rate). */
+    uint8_t MinGrant;
+    /*A read-only register that specifies how often the device needs access to the PCI bus (in 1/4 microsecond units). */
+    uint8_t Maxlatency; 	
+
+}PCIDeviceHeaderFull;
+
 /*枚举PCI总线*/
 void EnumeratePCI(MCFGHeader*mcfg);
 

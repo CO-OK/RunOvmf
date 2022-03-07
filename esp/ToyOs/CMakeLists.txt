@@ -5,14 +5,14 @@ project(Kernel.elf LANGUAGES C ASM_NASM)
 SET(CMAKE_C_COMPILER "/usr/bin/gcc")
 # 编译器选项 不能用-m32
 
-SET(CFLAGS "-fno-stack-protector -nostdlib  -ffreestanding -mno-red-zone")
+SET(CFLAGS "-fno-stack-protector -nostdlib -fshort-wchar -fno-exceptions -ffreestanding -mno-red-zone")
 SET(CMAKE_C_FLAGS "${CFLAGS}")
 
 #
 
 
 # 链接选项
-set(LDFLAGS "  -e KernelStart -T ../Kernel.ld  font.o")
+set(LDFLAGS "  -Bsymbolic  -e KernelStart -T ../Kernel.ld  font.o")
 set(CMAKE_EXE_LINKER_FLAGS    "${LDFLAGS}")
 
 
