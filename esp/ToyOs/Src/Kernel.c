@@ -43,7 +43,8 @@ void KernelInit(BOOT_CONFIG* BootConfig){
     InitInterrupts();
     InitACPI(BootConfig);
     
-    // printf("Kernel\n");
+    //printf("Kernel\n");
+    
 }
 
 void InitACPI(BOOT_CONFIG *BootConfig){
